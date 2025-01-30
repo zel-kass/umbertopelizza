@@ -28,6 +28,11 @@ export default function NavBar () {
 							<SheetDescription>
 								Contact me for more info
 							</SheetDescription>
+							<div className="flex flex-col">
+								<span>umbertomariapelizza@gmail.com</span>
+								<span>06 44 27 89 92</span>
+								<span>_umbertoz</span>
+							</div>
 						</SheetHeader>
 					</SheetContent>
 				</Sheet>
