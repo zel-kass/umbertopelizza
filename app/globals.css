@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 h1 {
-	font-family: "lorimer-no-2", sans-serif;
+	font-family: lorimer-no-2, sans-serif;
+	font-weight: 900;
+	font-style: italic;
 }
 
 body {
