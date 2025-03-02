@@ -5,8 +5,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
-      <main className="flex-grow flex justify-center p-4">
-        <div className="w-full max-h-[90vh] aspect-video rounded-2xl overflow-hidden shadow-lg">
+      <main className="flex-grow flex justify-center px-4">
+        <div className="w-full max-h-[90vh] aspect-video rounded-2xl overflow-hidden relative">
+					<div className="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md z-10" />
 					<OptimizedVideo
             hlsSrc="/videos/BANDEDEMOFINAL.m3u8"
             mp4Src="/videos/BANDEDEMOFINAL_compressed.mp4"
