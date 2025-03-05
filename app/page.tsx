@@ -32,7 +32,7 @@ export default function Home() {
 			ease: "power4.inOut",
 			onComplete: () => {
 				gsap.set(preScreenRef.current, {display: "none"});
-				gsap.set(contentDivRef.current, {display: "block"});
+				gsap.set(contentDivRef.current, {display: "flex"});
 			},
 		});
 
@@ -47,7 +47,6 @@ export default function Home() {
 		}
 	}
 
-
 	return (
 		<div className="min-h-screen flex flex-col">
 			<div
@@ -58,10 +57,12 @@ export default function Home() {
 			>
 				<h1>PELIZZA</h1>
 			</div>
-			<NavBar />
-			<main className="flex flex-col justify-center px-4 gap-[10vh]">
-				<div className="w-full max-h-[90vh] aspect-video rounded-2xl overflow-hidden relative">
-					<div className="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md z-10" />
+			<main className="flex flex-col gap-[10vh]">
+				<div className="fixed top-0 left-0 z-10">
+					<NavBar />
+				</div>
+					{/* <div className="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md z-10" /> */}
+				<div className="w-full h-screen aspect-video relative overflow-hidden">
 					<OptimizedVideo
 						hlsSrc="/videos/BANDEDEMOFINAL.m3u8"
 						mp4Src="/videos/BANDEDEMOFINAL_compressed.mp4"
@@ -71,9 +72,10 @@ export default function Home() {
 						muted={true}
 					/>
 				</div>
-				<div className="flex items-center justify-center px-8" ref={contentDivRef}>
-					<h3 className="uppercase text-4xl leading-tight text-center">
-					nous sommes une agence créative avec un style visuel unique et une écoute attentive. Chaque projet est une collaboration : nous mêlons nos idées à vos besoins pour créer des contenus qui vous ressemblent. De la conception au tournage, jusqu'à la livraison finale, nous prenons en charge chaque étape pour vous offrir des formats sur-mesure, adaptés à vos envies et à votre univers.
+				<div className="flex-col items-center justify-center px-8 h-screen uppercase gap-4" ref={contentDivRef}>
+					<h3 className="text-4xl">services</h3>
+					<h3 className="text-2xl leading-tight text-center">
+					nous sommes une agence créative avec un style visuel unique et une écoute attentive. Chaque projet est une collaboration : nous mêlons nos idées à vos besoins pour créer des contenus qui vous ressemblent. De la conception au tournage, jusqu&aposà la livraison finale, nous prenons en charge chaque étape pour vous offrir des formats sur-mesure, adaptés à vos envies et à votre univers.
 					</h3>
 				</div>
 			</main>
