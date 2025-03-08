@@ -11,35 +11,33 @@ export default function Home() {
 	const contentDivRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (sessionStorage.getItem("isFirstVisit") === "true") {
-			const tl = gsap.timeline();
-			
-			const viewportHeight = window.innerHeight;
-			
-			gsap.set(contentDivRef.current, {
-				display: "none",
-			});
-			
-			gsap.set(preScreenRef.current, {
-				opacity: 1,
-				y: 0,
-			});
-			
-			tl.to(preScreenRef.current, {
-				y: -viewportHeight,
-				duration: 1.5,
-        delay: 0.5,
-				ease: "power4.inOut",
-				onComplete: () => {
-					gsap.set(preScreenRef.current, {display: "none"});
-					gsap.set(contentDivRef.current, {display: "flex"});
-				},
-			});
-			
-			return () => {
-				tl.kill();
-			};
-		}
+    const tl = gsap.timeline();
+    
+    const viewportHeight = window.innerHeight;
+    
+    gsap.set(contentDivRef.current, {
+      display: "none",
+    });
+    
+    gsap.set(preScreenRef.current, {
+      opacity: 1,
+      y: 0,
+    });
+    
+    tl.to(preScreenRef.current, {
+      y: -viewportHeight,
+      duration: 1.5,
+      delay: 0.5,
+      ease: "power4.inOut",
+      onComplete: () => {
+        gsap.set(preScreenRef.current, {display: "none"});
+        gsap.set(contentDivRef.current, {display: "flex"});
+      },
+    });
+    
+    return () => {
+      tl.kill();
+    };
 	}, [])
 
 	return (
