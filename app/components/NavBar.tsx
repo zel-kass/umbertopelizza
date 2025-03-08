@@ -2,11 +2,17 @@
 
 import { useTransitionRouter } from "next-view-transitions"
 import { usePathname } from "next/navigation";
+import { useRef, useState, useEffect } from "react";
+import { gsap } from "gsap";
 import Link from "next/link";
 
 export default function NavBar () {
 	const router = useTransitionRouter();
 	const pathname = usePathname();
+	const contactRef = useRef<HTMLDivElement>(null);
+	const contactTextRef = useRef<HTMLDivElement>(null);
+	const timelineRef = useRef<gsap.core.Timeline | null>(null);
+	const [isOpen, setIsOpen] = useState(false)
 
 	function slideInOut() {
 		document.documentElement.animate(
@@ -44,9 +50,43 @@ export default function NavBar () {
 		)
 	}
 
+	useEffect(() => {
+		const tl = gsap.timeline({paused: true});
+		timelineRef.current = tl;
+
+		tl.to(contactRef.current, {
+			scaleY: 12,
+			scaleX: 2,
+			display: "block",
+			duration: 1,
+			ease: "power4.inOut",
+			transformOrigin: "top right"
+		}).to(contactTextRef.current, {
+			x: -50,
+			duration: 1,
+			ease: "power4.inOut"
+		}, "-=1");
+
+		return () => {
+			tl.kill();
+		};
+	}, [])
+
+
+	const handleContactClick = () => {
+    if (timelineRef.current) {
+      if (isOpen) {
+        timelineRef.current.reverse()
+      } else {
+        timelineRef.current.play()
+      }
+      setIsOpen(!isOpen)
+    }
+  }
+
 	return(
 		<header>
-			<nav className="w-screen text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between lg:items-end text-2xl 2xl:text-4xl transition-all" aria-label="Main navigation">
+			<nav className="w-screen text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between lg:items-end text-2xl 2xl:text-4xl" aria-label="Main navigation">
 				<Link href="/">	
 					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">PELIZZA</h1>
 				</Link>
@@ -60,7 +100,10 @@ export default function NavBar () {
 				}} href="/photos">
 					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">WORK</h1>
 				</a>
-				<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">CONTACT</h1>
+				<div className="relative hover:text-white px-2 hover:bg-zinc-900" onClick={handleContactClick}>
+					<div className="absolute right-0 top-0 w-full h-full hidden bg-zinc-900/60 backdrop-blur-sm z-[-5]" ref={contactRef} />
+					<h1 className="cursor-pointer" ref={contactTextRef}>CONTACT</h1>
+				</div>
 			</nav>
 		</header>
 	)
