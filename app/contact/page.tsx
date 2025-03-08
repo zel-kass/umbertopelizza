@@ -1,14 +1,21 @@
+'use client';
+
+import { useTransitionRouter } from "next-view-transitions";
 import NavBar from "@/app/components/NavBar";
+import Link from "next/link";
+import slideInOut from "@/lib/utils";
 
 export default function Contact() {
+	const router = useTransitionRouter();
+
 	return (
-		<div className="w-full">
+		<main className="w-full">
 			<NavBar />
-			<div className="p-12 pt-[15vh]">
-				<div className="w-full flex justify-between items-center text-6xl">
-					<h2 className="max-w-[50vw]">DISCUTONS DE VOUS, VOTRE ENTREPRISE, VOS PROJETS, ET VOS OBJECTIFS</h2>
+			<div className="px-6 lg:px-12 mt-[10vh]">
+				<div className="w-full flex justify-between items-center text-4xl lg:text-6xl">
+					<h2 className="lg:max-w-[50vw]">DISCUTONS DE VOUS, VOTRE ENTREPRISE, VOS PROJETS, ET VOS OBJECTIFS</h2>
 				</div>
-				<div className="flex flex-col lg:flex-row justify-between mt-[20vh]">
+				<div className="flex flex-col gap-x-4 lg:flex-row justify-between mt-[20vh]">
 					<div>
 						<h3>VOUS AVEZ UN PROJET?</h3>
 						<h3>NOUS LUI DONNONS VIE EN IMAGES</h3>
@@ -24,6 +31,68 @@ export default function Contact() {
 					</div>
 				</div>
 			</div>
-		</div>
+        <footer className="mt-[20vh] mb-[5vh] flex flex-col lg:flex-row justify-between px-6 lg:px-12 gap-8">
+        <div>
+          <ul className="flex flex-col gap-y-3">
+            <li>
+              <Link href="/">
+                <h3 className="cursor-pointer hover:text-primary transition-colors">HOME</h3>
+              </Link>
+            </li>
+            <li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push("/photos", {
+                    onTransitionReady: slideInOut,
+                  })
+                }}
+                href="/photos"
+                className="block"
+              >
+                <h3 className="cursor-pointer hover:text-primary transition-colors">PHOTOS</h3>
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push("/photos", {
+                    onTransitionReady: slideInOut,
+                  })
+                }}
+                href="/photos"
+                className="block"
+              >
+                <h3 className="cursor-pointer hover:text-primary transition-colors">VIDEOS</h3>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col gap-y-3">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/umbertoz_/"
+              className="hover:text-primary transition-colors"
+              rel="noopener noreferrer"
+            >
+              <h3>INSTAGRAM</h3>
+            </a>
+            <h3 className="hover:text-primary transition-colors">
+              <a href="tel:0644278992">06 44 27 89 92</a>
+            </h3>
+            <h3 className="hover:text-primary transition-colors">
+              <a href="mailto:umbertomariapelizza@gmail.com">umbertomariapelizza@gmail.com</a>
+            </h3>
+          </div>
+          <div className="flex flex-col gap-y-3 mt-4 sm:mt-0">
+            <h3>© {new Date().getFullYear()} PELIZZA</h3>
+            <h3>ALL RIGHTS RESERVED</h3>
+          </div>
+        </div>
+      </footer>
+		</main>
 	);
 }

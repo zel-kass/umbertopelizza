@@ -3,7 +3,8 @@
 import { useTransitionRouter } from "next-view-transitions"
 import { usePathname } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
-import { Power3, gsap } from "gsap";
+import slideInOut from "@/lib/utils";
+import { gsap } from "gsap";
 import Link from "next/link";
 
 export default function NavBar () {
@@ -13,42 +14,6 @@ export default function NavBar () {
 	const contactTextRef = useRef<HTMLDivElement>(null);
 	const timelineRef = useRef<gsap.core.Timeline | null>(null);
 	const [isOpen, setIsOpen] = useState(false)
-
-	function slideInOut() {
-		document.documentElement.animate(
-			[
-				{
-					opacity: 1,
-					transform: 'translateY(0)',
-				},
-				{
-					opacity: 0,
-					transform: 'translateY(-35%)',
-				}
-			], {
-				duration: 1500,
-				easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-				fill: 'forwards',
-				pseudoElement: "::view-transition-old(root)",
-			}
-		);
-
-		document.documentElement.animate(
-			[
-				{
-					clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
-				},
-				{
-					clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)"
-				}
-			], {
-				duration: 1500,
-				easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-				fill: 'forwards',
-				pseudoElement: "::view-transition-new(root)",
-			}
-		)
-	}
 
 	useEffect(() => {
 		const tl = gsap.timeline({paused: true});
