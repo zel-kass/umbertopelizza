@@ -3,7 +3,7 @@
 import { useTransitionRouter } from "next-view-transitions"
 import { usePathname } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
-import { gsap } from "gsap";
+import { Power3, gsap } from "gsap";
 import Link from "next/link";
 
 export default function NavBar () {
@@ -54,18 +54,9 @@ export default function NavBar () {
 		const tl = gsap.timeline({paused: true});
 		timelineRef.current = tl;
 
-		tl.to(contactRef.current, {
-			scaleY: 12,
-			scaleX: 2,
-			display: "block",
-			duration: 1,
-			ease: "power4.inOut",
-			transformOrigin: "top right"
-		}).to(contactTextRef.current, {
-			x: -50,
-			duration: 1,
-			ease: "power4.inOut"
-		}, "-=1");
+		if (contactRef.current) {
+			timelineRef.current.fromTo(contactRef.current, {opacity: 0, height: "0px"}, {opacity: 1, height: "50vh", duration: 1.5, ease: "power4.inOut"})
+		}
 
 		return () => {
 			tl.kill();
@@ -98,12 +89,28 @@ export default function NavBar () {
 						});
 					}
 				}} href="/photos">
-					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">WORK</h1>
+					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">PHOTOS</h1>
 				</a>
-				<div className="relative hover:text-white px-2 hover:bg-zinc-900" onClick={handleContactClick}>
-					<div className="absolute right-0 top-0 w-full h-full hidden bg-zinc-900/60 backdrop-blur-sm z-[-5]" ref={contactRef} />
-					<h1 className="cursor-pointer" ref={contactTextRef}>CONTACT</h1>
-				</div>
+				<a onClick={(e) => {
+					e.preventDefault();
+					if (pathname !== '/photos') {
+						router.push('/photos', {
+							onTransitionReady: slideInOut,
+						});
+					}
+				}} href="/photos">
+					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">VIDEOS</h1>
+				</a>
+				<a onClick={(e) => {
+					e.preventDefault();
+					if (pathname !== '/contact') {
+						router.push('/contact', {
+							onTransitionReady: slideInOut,
+						});
+					}
+				}} href="/contact">
+					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">CONTACT</h1>
+				</a>
 			</nav>
 		</header>
 	)
