@@ -2,43 +2,12 @@
 
 import { useTransitionRouter } from "next-view-transitions"
 import { usePathname } from "next/navigation";
-import { useRef, useState, useEffect } from "react";
 import slideInOut from "@/lib/utils";
-import { gsap } from "gsap";
 import Link from "next/link";
 
 export default function NavBar () {
 	const router = useTransitionRouter();
 	const pathname = usePathname();
-	const contactRef = useRef<HTMLDivElement>(null);
-	const contactTextRef = useRef<HTMLDivElement>(null);
-	const timelineRef = useRef<gsap.core.Timeline | null>(null);
-	const [isOpen, setIsOpen] = useState(false)
-
-	useEffect(() => {
-		const tl = gsap.timeline({paused: true});
-		timelineRef.current = tl;
-
-		if (contactRef.current) {
-			timelineRef.current.fromTo(contactRef.current, {opacity: 0, height: "0px"}, {opacity: 1, height: "50vh", duration: 1.5, ease: "power4.inOut"})
-		}
-
-		return () => {
-			tl.kill();
-		};
-	}, [])
-
-
-	const handleContactClick = () => {
-    if (timelineRef.current) {
-      if (isOpen) {
-        timelineRef.current.reverse()
-      } else {
-        timelineRef.current.play()
-      }
-      setIsOpen(!isOpen)
-    }
-  }
 
 	return(
 		<header>
@@ -80,7 +49,3 @@ export default function NavBar () {
 		</header>
 	)
 }
-
-{/* <span>umbertomariapelizza@gmail.com</span>
-<span>06 44 27 89 92</span>
-<span>_umbertoz</span> */}
