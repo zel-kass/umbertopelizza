@@ -50,7 +50,7 @@ export default function Home() {
 				<h1>PELIZZA</h1>
 			</div>
 			<main className="flex flex-col gap-[10vh]">
-				<div className="fixed top-0 left-0 z-10">
+				<div className="fixed w-full top-0 left-0 z-10">
 					<NavBar />
 				</div>
 					{/* <div className="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md z-10" /> */}

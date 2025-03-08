@@ -11,7 +11,7 @@ export default function NavBar () {
 
 	return(
 		<header>
-			<nav className="w-full text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between lg:items-end text-2xl 2xl:text-4xl" aria-label="Main navigation">
+			<nav className="w-full text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between text-2xl 2xl:text-4xl" aria-label="Main navigation">
 				<Link href="/">	
 					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">PELIZZA</h1>
 				</Link>
