@@ -51,7 +51,7 @@ export default function OptimizedVideo({
 
   return (
     <div className="relative w-full h-full">
-      {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-gray-200">Loading...</div>}
+      {isLoading && <div className="absolute top-0 left-0 h-full w-full bg-white flex justify-center items-center text-8xl cursor-pointer overflow-hidden"><h1>PELIZZA</h1></div>}
       <video
         ref={videoRef}
         className="w-full h-full object-cover"

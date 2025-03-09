@@ -25,8 +25,8 @@ export default function Contact() {
 						<input className="mt-6 pb-[2vh] border-b outline-none" type="text" placeholder="VOTRE EMAIL" />
 						<input className="mt-6 pb-[2vh] border-b outline-none" type="text" placeholder="PARLEZ DE VOTRE PROJET" />
 						<div className="flex justify-between mt-6">
-							<input type="text" placeholder="BUDGET"/>
-							<input className="hover:text-white hover:bg-zinc-900 px-2 cursor-pointer" type="submit" value="ENVOYER" />
+							<input className="outline-none" type="text" placeholder="BUDGET"/>
+							<input className="text-xl hover:text-white hover:bg-zinc-900 px-2 cursor-pointer" type="submit" value="ENVOYER" />
 						</div>
 					</div>
 				</div>

@@ -12,10 +12,17 @@ export default function NavBar () {
 	return(
 		<header>
 			<nav className="w-full text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between text-2xl 2xl:text-4xl" aria-label="Main navigation">
-				<Link href="/">	
+			<a onClick={(e) => {
+					e.preventDefault();
+					if (pathname !== '/home') {
+						router.push('/home', {
+							onTransitionReady: slideInOut,
+						});
+					}
+				}} href="/home">
 					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">PELIZZA</h1>
-				</Link>
-				<a onClick={(e) => {
+				</a>
+				{/* <a onClick={(e) => {
 					e.preventDefault();
 					if (pathname !== '/photos') {
 						router.push('/photos', {
@@ -34,7 +41,7 @@ export default function NavBar () {
 					}
 				}} href="/photos">
 					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">VIDEOS</h1>
-				</a>
+				</a> */}
 				<a onClick={(e) => {
 					e.preventDefault();
 					if (pathname !== '/contact') {
