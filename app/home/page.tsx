@@ -1,24 +1,24 @@
 'use client'
 
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Lenis from 'lenis'
+// import gsap from 'gsap'
+// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+// import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import NavBar from "@/app/components/nav-bar"
 import Footer from "@/app/components/footer"
 import OptimizedVideo from "@/app/components/optimized-video"
 
 export default function Home() {
-	const lenis = new Lenis();
+	// const lenis = new Lenis();
 
-	lenis.on('scroll', ScrollTrigger.update);
+	// lenis.on('scroll', ScrollTrigger.update);
 
-	gsap.ticker.add((time) => {
-		lenis.raf(time * 1000);
-	});
+	// gsap.ticker.add((time) => {
+	// 	lenis.raf(time * 1000);
+	// });
 
 	// Disable lag smoothing in GSAP to prevent any delay in scroll animations
-	gsap.ticker.lagSmoothing(0);
+	// gsap.ticker.lagSmoothing(0);
 
 	return (
 		<main className="flex flex-col gap-[5vh]">
