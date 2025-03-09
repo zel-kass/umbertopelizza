@@ -3,7 +3,6 @@
 import { useTransitionRouter } from "next-view-transitions"
 import { usePathname } from "next/navigation";
 import slideInOut from "@/lib/utils";
-import Link from "next/link";
 
 export default function NavBar () {
 	const router = useTransitionRouter();
@@ -11,7 +10,7 @@ export default function NavBar () {
 
 	return(
 		<header>
-			<nav className="w-full text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between text-2xl 2xl:text-4xl" aria-label="Main navigation">
+			<nav className="w-full text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl" aria-label="Main navigation">
 			<a onClick={(e) => {
 					e.preventDefault();
 					if (pathname !== '/home') {
@@ -22,7 +21,7 @@ export default function NavBar () {
 				}} href="/home">
 					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">PELIZZA</h1>
 				</a>
-				{/* <a onClick={(e) => {
+				<a onClick={(e) => {
 					e.preventDefault();
 					if (pathname !== '/photos') {
 						router.push('/photos', {
@@ -30,9 +29,9 @@ export default function NavBar () {
 						});
 					}
 				}} href="/photos">
-					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">PHOTOS</h1>
+					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">WORKS</h1>
 				</a>
-				<a onClick={(e) => {
+				{/* <a onClick={(e) => {
 					e.preventDefault();
 					if (pathname !== '/photos') {
 						router.push('/photos', {

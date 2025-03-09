@@ -1,4 +1,4 @@
-import NavBar from "@/app/components/NavBar"
+import NavBar from "@/app/components/nav-bar"
 
 export default function Photos() {
 	return (

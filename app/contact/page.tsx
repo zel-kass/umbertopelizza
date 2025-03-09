@@ -1,7 +1,7 @@
 'use client';
 
 import { useTransitionRouter } from "next-view-transitions";
-import NavBar from "@/app/components/NavBar";
+import NavBar from "@/app/components/nav-bar";
 import Link from "next/link";
 import slideInOut from "@/lib/utils";
 
@@ -31,7 +31,7 @@ export default function Contact() {
 					</div>
 				</div>
 			</div>
-        <footer className="mt-[20vh] mb-[5vh] flex flex-col lg:flex-row justify-between px-6 lg:px-12 gap-8">
+			<footer className="mt-[20vh] mb-[5vh] flex flex-col lg:flex-row justify-between px-6 lg:px-12 gap-8">
         <div>
           <ul className="flex flex-col gap-y-3">
             <li>
