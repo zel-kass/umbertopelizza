@@ -12,7 +12,9 @@ export default function Contact() {
 	return (
     <ReactLenis root>
       <main>
-        <NavBar />
+        <div className="fixed top-0 left-0 w-full">
+          <NavBar />
+        </div>
         <div className="px-6 lg:px-12 mt-[10vh]">
           <div className="w-full flex justify-between items-center text-4xl lg:text-6xl">
             <h2 className="lg:max-w-[50vw]">DISCUTONS DE VOUS, VOTRE ENTREPRISE, VOS PROJETS, ET VOS OBJECTIFS</h2>
