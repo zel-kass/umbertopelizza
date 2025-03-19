@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2 {
+h1, h2, p {
 	font-family: lorimer-no-2, sans-serif;
 	font-weight: 900;
 	font-style: normal;

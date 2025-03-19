@@ -9,19 +9,20 @@ export default function Home() {
 
 	return (
     <ReactLenis root>
-      <div className="min-h-screen flex flex-col">
+      <main className="min-h-screen flex flex-col">
         <a  onClick={(e) => {
             e.preventDefault();
               router.push('/home', {
                 onTransitionReady: slideInOut,
               });
           }}
-          className="absolute top-0 left-0 h-full w-full bg-white z-20 flex justify-center items-center text-8xl cursor-pointer overflow-hidden"
+          className="absolute top-0 left-0 flex flex-col gap-y-8 h-full w-full bg-white z-20 flex justify-center items-center cursor-pointer overflow-hidden"
           id="pre-screen"
         >
-          <h1>PELIZZA</h1>
+          <h1 className="text-8xl">PELIZZA</h1>
+					<h3>CLICK TO ENTER</h3>
         </a>
-      </div>
+      </main>
     </ReactLenis>
 	)
 }
