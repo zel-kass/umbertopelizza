@@ -1,47 +1,20 @@
 'use client';
 
-import { useTransitionRouter } from "next-view-transitions";
-import { usePathname } from "next/navigation";
-import slideInOut from "@/lib/utils";
+import AnimatedLink from "./animated-link";
+import BurgerMenu from "./burger-menu";
 
 export default function NavBar () {
-	const router = useTransitionRouter();
-	const pathname = usePathname();
 
 	return(
 		<header>
-			<nav className="w-full text-zinc-800 px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between items-center" aria-label="Main navigation">
-			<a onClick={(e) => {
-					e.preventDefault();
-					if (pathname !== '/home') {
-						router.push('/home', {
-							onTransitionReady: slideInOut,
-						});
-					}
-				}} href="/home">
-					<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">PELIZZA</h1>
-				</a>
-				<div className="flex flex-row gap-8 text-xl lg:text-lg xl:text-xl 2xl:text-2xl">
-					<a onClick={(e) => {
-						e.preventDefault();
-						if (pathname !== '/photos') {
-							router.push('/photos', {
-								onTransitionReady: slideInOut,
-							});
-						}
-					}} href="/photos">
-						<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">WORKS</h1>
-					</a>
-					<a onClick={(e) => {
-						e.preventDefault();
-						if (pathname !== '/contact') {
-							router.push('/contact', {
-								onTransitionReady: slideInOut,
-							});
-						}
-					}} href="/contact">
-						<h1 className="hover:bg-zinc-900 hover:text-white px-2 cursor-pointer">CONTACT</h1>
-					</a>
+			<nav className="w-full text-zinc-800" aria-label="Main navigation">
+				<BurgerMenu />
+				<div className="hidden md:flex w-full px-4 lg:px-8 py-2 flex flex-col sm:flex-row justify-between items-center">
+					<AnimatedLink link="/home" text="PELIZZA" className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl"/>
+					<div className="flex flex-row gap-8 text-lg xl:text-xl 2xl:text-2xl">
+						<AnimatedLink link="/photos" text="WORKS" />
+						<AnimatedLink link="/contact" text="CONTACT" />
+					</div>
 				</div>
 			</nav>
 		</header>

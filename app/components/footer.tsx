@@ -7,7 +7,7 @@ export default function Footer() {
 	const router = useTransitionRouter();
 
 	return (
-		<footer className="mb-[5vh] flex flex-col lg:flex-row justify-between px-6 lg:px-12 gap-8">
+		<footer className="mb-[5vh] flex flex-col lg:flex-row justify-between px-6 lg:px-12 gap-8 text-xs md:text-sm">
 			<div>
 				<ul className="flex flex-col gap-y-3">
 					<li>
