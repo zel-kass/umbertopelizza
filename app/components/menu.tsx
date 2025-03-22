@@ -15,8 +15,9 @@ interface MenuProps {
 }
 
 export default function Menu ({ isOpen }: MenuProps) {
-	const tlRef = useRef<gsap.core.Timeline | null>(null)
 	const menuRef = useRef<HTMLDivElement>(null);
+	const contentRef = useRef<HTMLDivElement>(null);
+	const tlRef = useRef<gsap.core.Timeline | null>(null)
 
   useEffect(() => {
     if (!menuRef.current) return
@@ -24,6 +25,8 @@ export default function Menu ({ isOpen }: MenuProps) {
     if (tlRef.current) {
       tlRef.current.kill()
     }
+
+		const linkElements = contentRef.current?.querySelectorAll('a')
 
     tlRef.current = gsap.timeline({
       paused: true,
@@ -35,19 +38,40 @@ export default function Menu ({ isOpen }: MenuProps) {
     })
 
     if (isOpen) {
-			document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden"
       gsap.set(menuRef.current, { autoAlpha: 0 })
-      tlRef.current
-        .to(menuRef.current, {
-          autoAlpha: 1,
-          duration: 0.5,
+      tlRef.current.to(menuRef.current, {
+        autoAlpha: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      })
+
+      if (linkElements) {
+				gsap.set(linkElements, { y: -20, opacity: 0 })
+        tlRef.current.to(linkElements, {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.1,
           ease: "power2.out",
         })
-        .play()
+      }
+
+      tlRef.current.play()
     } else {
       const hasBeenOpened = menuRef.current.style.opacity !== "" && menuRef.current.style.opacity !== "0"
 
       if (hasBeenOpened) {
+				if (linkElements) {
+					tlRef.current.to(linkElements, {
+						y: -20,
+						opacity: 0,
+						duration: 0.4,
+						stagger: 0.2,
+						ease: "power2.in",
+					})
+				}
+				
         tlRef.current
           .to(menuRef.current, {
             autoAlpha: 0,
@@ -66,10 +90,10 @@ export default function Menu ({ isOpen }: MenuProps) {
   }, [isOpen])
 
 	return (
-    <div className="w-screen h-screen absolute top-0 left-0 bg-white/50 backdrop-blur-sm invisible" ref={menuRef}>
-      <div className="flex flex-col items-center justify-center h-full gap-8">
+    <div className="w-screen h-screen absolute top-0 left-0 bg-white/50 backdrop-blur-md opacity-0 invisible" ref={menuRef}>
+      <div className="flex flex-col items-center justify-center h-full gap-8" ref={contentRef}>
         {navItems.map((item, index) => (
-          <AnimatedLink link={item.href} text={item.label} key={index} className='text-2xl' />
+          <AnimatedLink link={item.href} text={item.label} key={index} className='text-4xl'/>
         ))}
       </div>
     </div>
