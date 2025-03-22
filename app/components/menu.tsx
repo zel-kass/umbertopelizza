@@ -45,7 +45,9 @@ export default function Menu ({ isOpen }: MenuProps) {
         })
         .play()
     } else {
-      if (menuRef.current.style.visibility !== "hidden") {
+      const hasBeenOpened = menuRef.current.style.opacity !== "" && menuRef.current.style.opacity !== "0"
+
+      if (hasBeenOpened) {
         tlRef.current
           .to(menuRef.current, {
             autoAlpha: 0,
@@ -64,7 +66,7 @@ export default function Menu ({ isOpen }: MenuProps) {
   }, [isOpen])
 
 	return (
-    <div className="w-screen h-screen absolute top-0 left-0 bg-white/50 backdrop-blur-sm" ref={menuRef}>
+    <div className="w-screen h-screen absolute top-0 left-0 bg-white/50 backdrop-blur-sm invisible" ref={menuRef}>
       <div className="flex flex-col items-center justify-center h-full gap-8">
         {navItems.map((item, index) => (
           <AnimatedLink link={item.href} text={item.label} key={index} className='text-2xl' />
