@@ -2,7 +2,6 @@
 
 import ReactLenis from "lenis/react"
 import NavBar from "@/app/components/nav-bar"
-import Footer from "@/app/components/footer"
 import OptimizedVideo from "@/app/components/optimized-video"
 import HorizontalSection from "@/app/components/horizontal-section"
 
