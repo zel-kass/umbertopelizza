@@ -60,6 +60,7 @@ export default function Menu ({ isOpen }: MenuProps) {
       tlRef.current.play()
     } else {
       const hasBeenOpened = menuRef.current.style.opacity !== "" && menuRef.current.style.opacity !== "0"
+      document.body.style.overflow = "auto"
 
       if (hasBeenOpened) {
 				if (linkElements) {
