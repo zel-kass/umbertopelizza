@@ -108,7 +108,7 @@ function Section1 () {
 		<main className="flex flex-col justify-end uppercase gap-[20vh]">
 			<div className='flex flex-col justify-center items-center gap-10 text-center text-zinc-900 px-[5vw]' ref={container} id="info">
 				<h3 className="text-lg 2xl:text-2xl">services</h3>
-				<p className="lg:text-2xl xl:text-5xl 2xl:text-7xl">
+				<p className="lg:text-2xl xl:text-5xl 2xl:text-[3vw]">
 				nous sommes une agence créative avec un style visuel unique et une écoute attentive. Chaque projet est une collaboration : nous mêlons nos idées à vos besoins pour créer des contenus qui vous ressemblent. De la conception au tournage, jusqu&apos;à la livraison finale, nous prenons en charge chaque étape pour vous offrir des formats sur-mesure, adaptés à vos envies et à votre univers.
 				</p>
 			</div>
@@ -162,63 +162,121 @@ function Section2 () {
 
 	return (
 		<main onMouseMove={manageMouseMove} className="relative w-full h-full">
-			<h1 className="absolute top-[45%] left-[50%] text-4xl cursor-pointer translate-x-[-50%] translate-y-[-50%] z-40">GALLERY</h1>
-			<div ref={plane1} className="absolute w-full h-full">
-				<Image 
-					src={floating1}
-					alt='image'
-					width={300}
-					className="absolute top-[65%] left-[85%]"
-				/>
-				<Image 
-					src={floating2}
-					alt='image'
-					width={300}
-					className="absolute top-[65%] left-[5%]"
-				/>
-				<Image 
-					src={floating7}
-					alt='image'
-					width={225}
-					className="absolute top-[0%] left-[35%]"
-				/>
-			</div>
-			<div ref={plane2} className="absolute w-full h-full">
-				<Image 
-					src={floating4}
-					alt='image'
-					width={300}
-					className="absolute top-[10%] left-[5%]"
-				/>
-				<Image 
-					src={floating6}
-					alt='image'
-					width={250}
-					className="absolute top-[10%] left-[85%]"
-				/>
-				<Image 
-					src={floating8}
-					alt='image'
-					width={225}
-					className="absolute top-[60%] left-[60%]"
-				/>
-			</div>
-			<div ref={plane3} className="absolute w-full h-full">
-				<Image 
-					src={floating3}
-					alt='image'
-					width={300}
-					className="absolute top-[2.5%] left-[65%]"
-				/>
-				<Image 
-					src={floating5}
-					alt='image'
-					width={300}
-					className="absolute top-[70%] left-[40%]"
-				/>
-			</div>
+		  <h1 className="absolute top-[45%] left-[50%] text-4xl cursor-pointer translate-x-[-50%] translate-y-[-50%] z-40">
+			GALLERY
+		  </h1>
+		  <div ref={plane1} className="absolute w-full h-full">
+  			<div className="absolute top-[65%] left-[85%] w-[2vw] max-w-[300px] min-w-[150px]">
+  			  <Image
+  				src={floating1 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 30vw, 25vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+  			<div className="absolute top-[65%] left-[5%] w-[2vw] max-w-[300px] min-w-[150px]">
+  			  <Image
+  				src={floating2 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 30vw, 25vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+  			<div className="absolute top-[0%] left-[35%] w-[2vw] max-w-[225px] min-w-[120px]">
+  			  <Image
+  				src={floating7 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 25vw, 20vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+		  </div>
+		  <div ref={plane2} className="absolute w-full h-full">
+  			<div className="absolute top-[10%] left-[5%] w-[2vw] max-w-[300px] min-w-[150px]">
+  			  <Image
+  				src={floating4 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 30vw, 25vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+  			<div className="absolute top-[10%] left-[85%] w-[2vw] max-w-[250px] min-w-[130px]">
+  			  <Image
+  				src={floating6 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 28vw, 22vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+  			<div className="absolute top-[60%] left-[60%] w-[2vw] max-w-[225px] min-w-[120px]">
+  			  <Image
+  				src={floating8 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 25vw, 20vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+		  </div>
+		  <div ref={plane3} className="absolute w-full h-full">
+  			<div className="absolute top-[2.5%] left-[65%] w-[3vw] max-w-[300px] min-w-[150px]">
+  			  <Image
+  				src={floating3 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 30vw, 25vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+  			<div className="absolute top-[70%] left-[40%] w-[2vw] max-w-[300px] min-w-[150px]">
+  			  <Image
+  				src={floating5 || "/placeholder.svg"}
+  				alt="image"
+  				placeholder="blur"
+  				priority
+  				sizes="(max-width: 768px) 30vw, 25vw"
+  				style={{
+  				  width: "100%",
+  				  height: "auto",
+  				}}
+  			  />
+  			</div>
+		  </div>
 		</main>
-	)
+	  )
 }
 
 interface Project {
@@ -295,7 +353,7 @@ function Project({project} : {project: Project}) {
 	
 
 	return (
-			<div className="w-full flex items-center justify-center py-4 text-2xl lg:text-4xl 2xl:text-8xl border-t cursor-pointer" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
+			<div className="w-full flex items-center justify-center py-4 text-2xl lg:text-4xl 2xl:text-[3vw] border-t cursor-pointer" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
 					<p>{title1}</p>
 					<div className="overflow-hidden flex justify-center h-[10vh] w-0 px-2" ref={preview}>
 						<img
