@@ -2,6 +2,8 @@
 
 import gsap from "gsap";
 import Image from "next/image";
+import SplitType from "split-type";
+import { useGSAP } from "@gsap/react";
 import { useRef, useEffect, MouseEvent } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
@@ -20,6 +22,7 @@ export default function HorizontalSection () {
 	const triggerRef = useRef<HTMLDivElement>(null);
 
 	gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(useGSAP);
 
 	useEffect(() => {
 		const pin = gsap.fromTo(sectionRef.current, {
@@ -59,9 +62,47 @@ export default function HorizontalSection () {
 }
 
 function Section1 () {
+	const container = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const text = new SplitType("#info p", {
+			types: "lines",
+			tagName: "div",
+			lineClass: "line"
+		});
+
+		text.lines?.forEach((line) => {
+			const content = line.innerHTML;
+			line.innerHTML = `<span>${content}</span>`;
+		})
+
+		console.log(text.lines)
+		gsap.set("#info p .line span", {
+			y: 400,
+			display: "block",
+			opacity: 0,
+		})
+
+		gsap.to("#info p .line span", {
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: "power4.out",
+			scrollTrigger: {
+				trigger: "#info",
+				start: "75 bottom",
+		}})
+
+		return () => {
+			if (text)
+				text.revert();
+		}
+	}, [container])
+
 	return (
 		<main className="flex flex-col justify-end uppercase gap-[20vh]">
-			<div className='flex flex-col justify-center items-center gap-10 text-center text-zinc-900 px-[5vw]'>
+			<div className='flex flex-col justify-center items-center gap-10 text-center text-zinc-900 px-[5vw]' ref={container} id="info">
 				<h3 className="text-lg 2xl:text-2xl">services</h3>
 				<p className="lg:text-2xl xl:text-5xl 2xl:text-7xl">
 				nous sommes une agence créative avec un style visuel unique et une écoute attentive. Chaque projet est une collaboration : nous mêlons nos idées à vos besoins pour créer des contenus qui vous ressemblent. De la conception au tournage, jusqu&apos;à la livraison finale, nous prenons en charge chaque étape pour vous offrir des formats sur-mesure, adaptés à vos envies et à votre univers.

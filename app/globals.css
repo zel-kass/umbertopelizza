@@ -123,3 +123,8 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.line {
+	overflow: hidden;
+	user-select: none;
+}
