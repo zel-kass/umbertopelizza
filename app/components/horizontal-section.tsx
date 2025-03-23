@@ -4,7 +4,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
-import { useRef, useEffect, MouseEvent } from "react";
+import { useRef, useEffect, useState, MouseEvent } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
 	floating1,
@@ -16,6 +16,7 @@ import {
 	floating7,
 	floating8
 } from '@/lib/data'
+import Footer from "./footer";
 
 export default function HorizontalSection () {
 	const sectionRef = useRef<HTMLDivElement>(null);
@@ -28,14 +29,14 @@ export default function HorizontalSection () {
 		const pin = gsap.fromTo(sectionRef.current, {
 			translateX: 0,
 		}, {
-			translateX: "-100vw",
+			translateX: "-200vw",
 			ease: "none",
 			duration: 1,
 			scrollTrigger: {
 				trigger: triggerRef.current,
 				start: "top top",
 				end: "1000 top",
-				scrub: 0.6,
+				scrub: 1,
 				pin: true,
 			}
 		})
@@ -55,8 +56,12 @@ export default function HorizontalSection () {
 					<div className="scroll-section">
 						<Section2 />
 					</div>
+					<div className="scroll-section">
+						<Section3 />
+					</div>
 				</div>
 			</div>
+			<Footer />
 		</section>
 	);
 }
@@ -76,7 +81,6 @@ function Section1 () {
 			line.innerHTML = `<span>${content}</span>`;
 		})
 
-		console.log(text.lines)
 		gsap.set("#info p .line span", {
 			y: 400,
 			display: "block",
@@ -214,5 +218,93 @@ function Section2 () {
 				/>
 			</div>
 		</main>
+	)
+}
+
+interface Project {
+	title1: string;
+	title2: string;
+	src: string;
+}
+
+function Section3 () {
+	const projects = [
+		{
+			title1: "VICTOR MARTINEZ",
+			title2: "MARECHAL",
+			src: "/videos/PREVIEWS/MARTINEZ_PREVIEW.png"
+		},
+		{
+			title1: "AZOTE",
+			title2: "WALLACE BOI",
+			src: "/videos/PREVIEWS/AZOTE_PREVIEW.png"
+		},
+		{
+			title1: "CITIZENK",
+			title2: "CORTO MALTESE",
+			src: "/videos/PREVIEWS/CORTO_PREVIEW.png"
+		},
+		{
+			title1: "GEORGE",
+			title2: "YUNG",
+			src: "/videos/PREVIEWS/GEORGE_PREVIEW.png"
+		},
+		{
+			title1: "WALLACE &",
+			title2: "RYUK",
+			src: "/videos/PREVIEWS/WALLACE_PREVIEW.png"
+		},
+		{
+			title1: "MORCEAU",
+			title2: "D'AMOUR",
+			src: "/videos/PREVIEWS/MORCEAU_PREVIEW.png"
+		},
+	]
+
+	return (
+		<div className="flex flex-col items-center w-full mx-[5vw]">
+			<h3 className="mb-6">PROJETS PHARES</h3>
+			{projects.map((project) => (
+				<Project key={project.title1} project={project} />
+			))}
+		</div>
+	)
+}
+
+function Project({project} : {project: Project}) {
+	const { title1, title2, src } = project;
+	const preview = useRef<HTMLDivElement>(null);
+	const [isActive, setIsActive] = useState(false);
+
+	useEffect(() => {
+		if (isActive) {
+			gsap.to(preview.current, {
+				transformOrigin: "center",
+				width: 'auto',
+				duration: 0.5,
+				ease: "power4.out",
+			})
+		} else {
+			gsap.to(preview.current, {
+				width: '0',
+				duration: 0.5,
+				ease: "power4.out",
+			})
+		}
+	}, [isActive])
+	
+
+	return (
+			<div className="w-full flex items-center justify-center py-4 text-2xl lg:text-4xl 2xl:text-8xl border-t cursor-pointer" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
+					<p>{title1}</p>
+					<div className="overflow-hidden flex justify-center h-[10vh] w-0 px-2" ref={preview}>
+						<img
+							src={src}
+							alt={title1}
+							className="object-contain"
+						/>
+					</div>
+					<p>{title2}</p>
+			</div>
 	)
 }

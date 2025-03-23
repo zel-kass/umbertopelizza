@@ -15,9 +15,9 @@ export default function Home() {
         </div>
         <div className="w-full h-screen aspect-video relative overflow-hidden">
           <OptimizedVideo
-            hlsSrc="/videos/BANDEDEMOFINAL.m3u8"
-            mp4Src="/videos/BANDEDEMOFINAL_compressed.mp4"
-            poster="/videos/BANDEDEMOFINAL-poster.jpg"
+            hlsSrc="/videos/BANDEDEMO/BANDEDEMOFINAL.m3u8"
+            mp4Src="/videos/BANDEDEMO/BANDEDEMOFINAL_compressed.mp4"
+            poster="/videos/BANDEDEMO/BANDEDEMOFINAL-poster.jpg"
             autoPlay={true}
             loop={true}
             muted={true}
