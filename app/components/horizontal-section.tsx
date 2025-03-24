@@ -3,7 +3,6 @@
 import gsap from "gsap";
 import Image from "next/image";
 import SplitType from "split-type";
-import { useGSAP } from "@gsap/react";
 import { useRef, useEffect, useState, MouseEvent } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
@@ -18,33 +17,12 @@ import {
 } from '@/lib/data'
 import Footer from "./footer";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function HorizontalSection () {
 	const sectionRef = useRef<HTMLDivElement>(null);
 	const triggerRef = useRef<HTMLDivElement>(null);
 
-	gsap.registerPlugin(ScrollTrigger);
-	gsap.registerPlugin(useGSAP);
-
-	useEffect(() => {
-		const pin = gsap.fromTo(sectionRef.current, {
-			translateX: 0,
-		}, {
-			translateX: "-200vw",
-			ease: "none",
-			duration: 1,
-			scrollTrigger: {
-				trigger: triggerRef.current,
-				start: "top top",
-				end: "1000 top",
-				scrub: 1,
-				pin: true,
-			}
-		})
-
-		return () => {
-			pin.kill();
-		}
-	})
 
 	return (
 		<section className="overflow-hidden">
@@ -54,10 +32,10 @@ export default function HorizontalSection () {
 						<Section1 />
 					</div>
 					<div className="scroll-section">
-						<Section2 />
+						<Section3 />
 					</div>
 					<div className="scroll-section">
-						<Section3 />
+						<Section2 />
 					</div>
 				</div>
 			</div>

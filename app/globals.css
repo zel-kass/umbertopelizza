@@ -110,10 +110,10 @@ body {
 }
 
 .scroll-section-inner {
-	height: 100vh;
-	width: 300vw;
+	height: fit-content;
+	width: auto;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 5vw;
 }
 
