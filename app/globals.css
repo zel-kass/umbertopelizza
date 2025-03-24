@@ -114,7 +114,6 @@ body {
 	width: auto;
 	display: flex;
 	flex-direction: column;
-	gap: 5vw;
 }
 
 .scroll-section {
