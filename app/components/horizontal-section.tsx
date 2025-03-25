@@ -4,7 +4,7 @@ import gsap from "gsap";
 import SplitType from "split-type";
 import FloatingGallery from "@/app/components/floating-gallery";
 import ProjectList from "@/app/components/project-list";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Footer from "./footer";
