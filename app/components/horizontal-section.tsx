@@ -19,15 +19,15 @@ export default function HorizontalSection () {
 	return (
 		<section className="overflow-hidden">
 			<div ref={triggerRef}>
-				<div ref={sectionRef} className="scroll-section-inner">
+				<div ref={sectionRef} className="scroll-section-inner 2xl:gap-[10vh]">
 					<div className="scroll-section">
 						<Section1 />
 					</div>
 					<div className="scroll-section">
-						<FloatingGallery />
+						<ProjectList />
 					</div>
 					<div className="scroll-section">
-						<ProjectList />
+						<FloatingGallery />
 					</div>
 				</div>
 			</div>
@@ -78,7 +78,7 @@ function Section1 () {
 		<main className="flex flex-col justify-end uppercase gap-[20vh]">
 			<div className='flex flex-col justify-center items-center gap-10 text-center text-zinc-900 px-[5vw]' ref={container} id="info">
 				<h3 className="text-lg 2xl:text-2xl">services</h3>
-				<p className="lg:text-2xl xl:text-5xl 2xl:text-[3vw]">
+				<p className="lg:text-2xl xl:text-4xl 2xl:text-[3vw]">
 				nous sommes une agence créative avec un style visuel unique et une écoute attentive. Chaque projet est une collaboration : nous mêlons nos idées à vos besoins pour créer des contenus qui vous ressemblent. De la conception au tournage, jusqu&apos;à la livraison finale, nous prenons en charge chaque étape pour vous offrir des formats sur-mesure, adaptés à vos envies et à votre univers.
 				</p>
 			</div>

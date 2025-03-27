@@ -44,8 +44,8 @@ const projects = [
 
 export default function ProjectList () {
 	return (
-		<div className="flex flex-col w-full">
-			<h3 className="mb-6 pl-[1vw]">PROJETS PHARES</h3>
+		<div className="flex flex-col justify-center items-center w-full">
+			<h3 className="text-2xl mb-6 pl-[1vw]">VIDEOS</h3>
 			{projects.map((project) => (
 				<Project key={project.title1} project={project} />
 			))}
@@ -77,7 +77,7 @@ function Project({project} : {project: Project}) {
 	
 
 	return (
-			<div className="w-full flex items-center justify-between text-2xl lg:text-4xl 2xl:text-[3vw] border-t cursor-pointer px-[1vw]" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
+			<div className="w-full 2xl:py-4 flex items-center justify-center text-lg lg:text-4xl 2xl:text-[4vw] border-t cursor-pointer px-[1vw]" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
 				<div className="flex items-center justify-center">
 					<p>{title1}</p>
 					<div className="overflow-hidden flex justify-center h-[10vh] w-0 px-2" ref={preview}>
@@ -89,10 +89,10 @@ function Project({project} : {project: Project}) {
 					</div>
 					<p>{title2}</p>
 				</div>
-				<div className="flex items-center justify-center gap-2 text-4xl">
+				{/* <div className="flex items-center justify-center gap-2 text-4xl">
 					<div className="w-[2vh] h-[2vh] rounded-full bg-red-600"/>
 					<p>REC</p>
-				</div>
+				</div> */}
 			</div>
 	)
 }
