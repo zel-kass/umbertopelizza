@@ -54,6 +54,7 @@ function Section1 () {
 		gsap.set("#info p .line span", {
 			y: 400,
 			display: "block",
+			marginTop: 16,
 			opacity: 0,
 		})
 
