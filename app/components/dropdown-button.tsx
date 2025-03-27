@@ -16,6 +16,8 @@ export default function DropDownMenu () {
       tlRef.current.kill()
     }
 
+    const linkElements = worksContent.current.querySelectorAll('a')
+
 		tlRef.current = gsap.timeline({
       paused: true,
       onComplete: () => {
@@ -27,24 +29,31 @@ export default function DropDownMenu () {
     
 		if (isOpened) {
 			gsap.set(worksContent.current, { autoAlpha: 0 })
+      gsap.set(linkElements, { opacity: 0 })
 			tlRef.current.to(worksContent.current, {
 				autoAlpha: 1,
 				height: "auto",
 				duration: 0.5,
 				ease: "power2.out",
-			},)
+			},).to(linkElements, {
+        opacity: 1,
+        stagger: 0.1,
+      }, "-=0.3")
 
 			tlRef.current.play()
 		} else {
 			const hasBeenOpened = worksContent.current.style.opacity !== "" && worksContent.current.style.opacity !== "0"
 			if (hasBeenOpened) {
 				tlRef.current
+          .to(linkElements, {
+            opacity: 0,
+          })
 					.to(worksContent.current, {
 						autoAlpha: 0,
 						height: 0,
 						duration: 0.5,
 						ease: "power2.in",
-					})
+					}, "-=0.3")
 					.play()
 			}
 		}
