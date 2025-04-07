@@ -13,7 +13,7 @@ import {
 	floating6,
 	floating7,
 	floating8
-} from '@/lib/data'
+} from '@/lib/floating-export'
 
 export default function FloatingGallery () {
 	const plane1 = useRef<HTMLDivElement>(null);
