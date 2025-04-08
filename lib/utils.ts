@@ -17,7 +17,7 @@ export default function slideInOut() {
         transform: 'translateY(-35%)',
       }
     ], {
-      duration: 1500,
+      duration: 1000,
       easing: "cubic-bezier(0.87, 0, 0.13, 1)",
       fill: 'forwards',
       pseudoElement: "::view-transition-old(root)",
@@ -33,7 +33,7 @@ export default function slideInOut() {
         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)"
       }
     ], {
-      duration: 1500,
+      duration: 1000,
       easing: "cubic-bezier(0.87, 0, 0.13, 1)",
       fill: 'forwards',
       pseudoElement: "::view-transition-new(root)",
