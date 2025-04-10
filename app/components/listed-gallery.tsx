@@ -11,16 +11,27 @@ import { useState, useEffect, useRef } from 'react';
 
 gsap.registerPlugin(Observer);
 
-const projects = {
-  1: {
-    name: "JAP META",
-    photos: jap_meta,
-  },
-  2: {
-    name: "OUTSOUL",
-    photos: outsoul,
-  },
-}
+// const projects = {
+//   1: {
+//     name: "JAP META",
+//     photos: jap_meta,
+//   },
+//   2: {
+//     name: "OUTSOUL",
+//     photos: outsoul,
+//   },
+// }
+
+const projects = [
+	{
+		name: "JAP META",
+		photos: jap_meta,
+	},
+	{
+		name: "OUTSOUL",
+		photos: outsoul,
+	},
+]
 
 interface PhotoGalleryProps {
 	title: string;
@@ -31,6 +42,7 @@ export default function ListedGallery() {
 	const [counter, setCounter] = useState(1);
 	const observerRef = useRef<Observer | null>(null);
   const [isAnimating, setIsAnimating] = useState(false)
+	const [currentProject, setCurrentProject] = useState(projects[counter as keyof typeof projects])
 
 	useEffect(() => {
 		observerRef.current = Observer.create({
@@ -54,62 +66,62 @@ export default function ListedGallery() {
       },
 		})
 	}, [counter])
-
-  const currentProject = projects[counter as keyof typeof projects]
   
-  useEffect(() => {
-    if (currentProject) {
-      setIsAnimating(true)
+  // useEffect(() => {
+  //   if (currentProject) {
+  //     setIsAnimating(true)
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          setIsAnimating(false)
-        }
-      })
+  //     const tl = gsap.timeline({
+  //       onComplete: () => {
+  //         setIsAnimating(false)
+  //       }
+  //     })
       
-      tl.to('#placeholder', {
-        height: '0',
-        duration: 0.5,
-        stagger: 0.1
-      })
+  //     tl.to('#placeholder', {
+  //       height: '0',
+  //       duration: 0.5,
+  //       stagger: 0.1,
+	// 			onComplete: () => {
+	// 				setCurrentProject(projects[counter as keyof typeof projects]);
+	// 			}
+  //     })
 
-      tl.to('#placeholder', {
-        height: '100%',
-        duration: 0.5,
-        stagger: 0.1
-      })
+  //     tl.to('#placeholder', {
+  //       height: '100%',
+  //       duration: 0.5,
+  //       stagger: 0.1
+  //     })
       
-    }
-  }, [counter, currentProject])
+  //   }
+  // }, [counter])
 
 	return (
-		<main className='flex h-full w-full items-center justify-center relative'>
-			<PhotoGallery title={currentProject.name} photos={currentProject.photos} />
+		<main className='flex h-full w-full flex-col gap-10 items-center justify-center relative'>
+			{projects.map((project, key) => (
+				<PhotoGallery title={project.name} photos={project.photos} key={key} />
+			))}
 		</main>
 	);
 }
 
 function PhotoGallery({ title, photos }: PhotoGalleryProps) {
-  useEffect(() => {
-  //   gsap.set("#placeholder", {
-  //     height: '0',
-  //   })
+  // useEffect(() => {
 
-    gsap.to("#placeholder", {
-      height: '100%',
-      duration: 1.5,
-      ease: "power2.out",
-      stagger: 0.1,
-      delay: 0.1,
-    })
-  }, [])
+  //   gsap.to("#placeholder", {
+  //     height: '100%',
+  //     duration: 1.5,
+  //     ease: "power2.out",
+  //     stagger: 0.1,
+  //     delay: 0.1,
+  //   })
+  // }, [])
 
   return (
     <div className='flex flex-col gap-4 px-8 w-full'>
       <h3>{title}</h3>
-      <div className='flex flex-col md:flex-row gap-2 h-[40vh] w-full'>
+      <div className='flex flex-col md:flex-row gap-2 h-[20vh] w-full'>
         {photos.map((photo, key) => (
-          <div key={key} className='relative w-80' id='placeholder'>
+          <div key={key} className='relative w-60' id='placeholder'>
             <Image
               src={photo.src}
               alt={`"jap_meta${key}"`}

@@ -1,6 +1,7 @@
 'use client';
 
 import gsap from "gsap";
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 
 interface Project {
@@ -62,13 +63,13 @@ function Project({project} : {project: Project}) {
 		if (isActive) {
 			gsap.to(preview.current, {
 				transformOrigin: "center",
-				width: 'auto',
+				width: '10%',
 				duration: 0.5,
 				ease: "power4.out",
 			})
 		} else {
 			gsap.to(preview.current, {
-				width: '0',
+				width: '0%',
 				duration: 0.5,
 				ease: "power4.out",
 			})
@@ -77,14 +78,17 @@ function Project({project} : {project: Project}) {
 	
 
 	return (
-			<div className="w-full 2xl:py-4 flex items-center justify-center text-lg lg:text-4xl 2xl:text-[4vw] border-t cursor-pointer px-[1vw]" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
-				<div className="flex items-center justify-center">
+			<div className="w-full flex items-center justify-center text-lg lg:text-4xl 2xl:text-[4vw] border-t cursor-pointer" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
+				<div className="flex items-center justify-center w-full h-[10vh]">
 					<p>{title1}</p>
-					<div className="overflow-hidden flex justify-center h-[10vh] w-0 px-2" ref={preview}>
-						<img
+					<div className="relative w-60 h-full" ref={preview}>
+						<Image
 							src={src}
 							alt={title1}
-							className="object-contain"
+							fill
+							sizes='30vh'
+							className="object-cover"
+              quality={100}
 						/>
 					</div>
 					<p>{title2}</p>
