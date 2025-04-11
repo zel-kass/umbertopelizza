@@ -7,7 +7,7 @@ import type { StaticImageData } from 'next/image';
 
 import gsap from 'gsap';
 import { Observer } from 'gsap/Observer';
-import { useState, useEffect, useRef } from 'react';
+// import { useState, useEffect, useRef } from 'react';
 
 gsap.registerPlugin(Observer);
 
@@ -39,33 +39,29 @@ interface PhotoGalleryProps {
 }
 
 export default function ListedGallery() {
-	const [counter, setCounter] = useState(1);
-	const observerRef = useRef<Observer | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false)
-	const [currentProject, setCurrentProject] = useState(projects[counter as keyof typeof projects])
+	// const [counter, setCounter] = useState(1);
+	// const observerRef = useRef<Observer | null>(null);
+  // const [isAnimating, setIsAnimating] = useState(false)
+	// const [currentProject, setCurrentProject] = useState(projects[counter as keyof typeof projects])
 
-	useEffect(() => {
-		observerRef.current = Observer.create({
-			target: window,
-			type: "wheel, touch, scroll",
-			onUp: () => {
-        if (!isAnimating) {
-          if (counter === 1)
-          setCounter(Object.keys(projects).length)
-				else
-          setCounter(counter - 1)
-        } 
-      },
-      onDown: () => {
-        if (!isAnimating) {
-          if (counter === Object.keys(projects).length)
-            setCounter(1)
-          else
-            setCounter(counter + 1)
-        }
-      },
-		})
-	}, [counter])
+	// useEffect(() => {
+	// 	observerRef.current = Observer.create({
+	// 		target: window,
+	// 		type: "wheel, touch, scroll",
+	// 		onUp: () => {
+  //       if (counter === 1)
+  //         setCounter(Object.keys(projects).length)
+	// 			else
+  //         setCounter(counter - 1)
+  //     },
+  //     onDown: () => {
+  //       if (counter === Object.keys(projects).length)
+  //         setCounter(1)
+  //       else
+  //         setCounter(counter + 1)
+  //     },
+	// 	})
+	// }, [counter])
   
   // useEffect(() => {
   //   if (currentProject) {
