@@ -9,11 +9,11 @@ export default function slideInOut() {
   document.documentElement.animate(
     [
       {
-        opacity: 1,
+        // opacity: 1,
         transform: 'translateY(0)',
       },
       {
-        opacity: 0,
+        // opacity: 0,
         transform: 'translateY(-35%)',
       }
     ], {
