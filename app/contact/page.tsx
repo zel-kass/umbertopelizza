@@ -2,13 +2,10 @@
 
 import ReactLenis from "lenis/react";
 import NavBar from "@/app/components/nav-bar";
-import { useTransitionRouter } from "next-view-transitions";
 import Footer from "@/app/components/footer";
 
 
 export default function Contact() {
-	const router = useTransitionRouter();
-
 	return (
     <ReactLenis root>
       <main>
