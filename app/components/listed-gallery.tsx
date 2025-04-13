@@ -1,12 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { jap_meta } from '@/lib/jap_meta-export'
-import { outsoul } from '@/lib/outsoul-export'
+import { asapes } from '@/lib/exports/asapes-export';
+import { authroz } from '@/lib/exports/authroz-export';
+import { outsoul } from '@/lib/exports/outsoul-export'
+import { jap_meta } from '@/lib/exports/jap_meta-export'
 import type { StaticImageData } from 'next/image';
 
 import gsap from 'gsap';
 import { Observer } from 'gsap/Observer';
+import { useEffect } from 'react';
 // import { useState, useEffect, useRef } from 'react';
 
 gsap.registerPlugin(Observer);
@@ -30,6 +33,14 @@ const projects = [
 	{
 		name: "OUTSOUL",
 		photos: outsoul,
+	},
+	{
+		name: "ASAPES",
+		photos: asapes,
+	},
+	{
+		name: "AUTHROZ",
+		photos: authroz,
 	},
 ]
 
@@ -90,6 +101,15 @@ export default function ListedGallery() {
       
   //   }
   // }, [counter])
+	useEffect(() => {
+		gsap.to("#placeholder", {
+			height: '100%',
+			duration: 1.5,
+			ease: "power2.out",
+			stagger: 0.05,
+			delay: 0.1,
+		})
+	})
 
 	return (
 		<main className='flex h-full w-full flex-col gap-10 items-center justify-center relative'>
@@ -101,16 +121,12 @@ export default function ListedGallery() {
 }
 
 function PhotoGallery({ title, photos }: PhotoGalleryProps) {
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   gsap.to("#placeholder", {
-  //     height: '100%',
-  //     duration: 1.5,
-  //     ease: "power2.out",
-  //     stagger: 0.1,
-  //     delay: 0.1,
-  //   })
-  // }, [])
+    gsap.set("#placeholder", {
+      height: '0',
+    })
+  }, [])
 
   return (
     <div className='flex flex-col gap-4 px-8 w-full'>
