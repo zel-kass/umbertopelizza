@@ -16,7 +16,7 @@ export default function Home() {
                 onTransitionReady: slideInOut,
               });
           }}
-          className="absolute top-0 left-0 flex-col gap-y-8 h-full w-full bg-white z-20 flex justify-center items-center cursor-pointer overflow-hidden"
+          className="absolute top-0 left-0 flex-col gap-y-8 h-full w-full bg-white z-[100] flex justify-center items-center cursor-pointer overflow-hidden"
           id="pre-screen"
         >
           <h1 className="text-8xl">PELIZZA</h1>

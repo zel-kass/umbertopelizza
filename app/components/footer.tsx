@@ -35,7 +35,7 @@ export default function Footer() {
 							href="/photos"
 							className="block"
 						>
-							<h3 className="cursor-pointer hover:text-primary transition-colors">PHOTOS</h3>
+							<h3 className="cursor-pointer hover:text-primary transition-colors">GALLERY</h3>
 						</a>
 					</li>
 					<li>
@@ -63,14 +63,32 @@ export default function Footer() {
 						className="hover:text-primary transition-colors"
 						rel="noopener noreferrer"
 					>
-						<h3>INSTAGRAM</h3>
+						<h3>Vittorio E. Pelizza</h3>
 					</a>
 					<h3 className="hover:text-primary transition-colors">
-						<a href="tel:0644278992">06 44 27 89 92</a>
+						<a href="tel:0644278992">+1 424 626 3133</a>
+					</h3>
+					<h3 className="hover:text-primary transition-colors">
+						<a href="mailto:umbertomariapelizza@gmail.com">vittorioemanuelepelizza@gmail.com</a>
+					</h3>
+					<h3>Los Angeles, CA</h3>
+				</div>
+				<div className="flex flex-col gap-y-3">
+					<a
+						target="_blank"
+						href="https://www.instagram.com/umbertoz_/"
+						className="hover:text-primary transition-colors"
+						rel="noopener noreferrer"
+					>
+						<h3>Umberto M. Pelizza</h3>
+					</a>
+					<h3 className="hover:text-primary transition-colors">
+						<a href="tel:0644278992">+33 6 44 27 89 92</a>
 					</h3>
 					<h3 className="hover:text-primary transition-colors">
 						<a href="mailto:umbertomariapelizza@gmail.com">umbertomariapelizza@gmail.com</a>
 					</h3>
+					<h3>Paris, FR</h3>
 				</div>
 				<div className="flex flex-col gap-y-3 mt-4 sm:mt-0">
 					<h3>© {new Date().getFullYear()} PELIZZA</h3>

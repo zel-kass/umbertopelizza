@@ -1,4 +1,3 @@
-import NavBar from "@/app/components/nav-bar"
 import ListedGallery from "@/app/components/listed-gallery";
 import ReactLenis from "lenis/react";
 import Footer from "@/app/components/footer";

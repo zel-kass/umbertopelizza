@@ -1,7 +1,6 @@
 'use client';
 
 import ReactLenis from "lenis/react";
-import NavBar from "@/app/components/nav-bar";
 import Footer from "@/app/components/footer";
 
 

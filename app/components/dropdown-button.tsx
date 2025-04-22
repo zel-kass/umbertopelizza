@@ -68,8 +68,8 @@ export default function DropDownMenu () {
         <h1>WORKS</h1>
       </div>
       <div className="invisible h-0 absolute flex flex-col gap-4 mt-4 text-white z-50" ref={worksContent}>
-        <AnimatedLink link='/gallery' text="GALLERY" />
-        <AnimatedLink link='/videos' text="VIDEOS" />
+        <AnimatedLink link='/gallery' text="GALLERY" setIsOpened={setIsOpened} />
+        <AnimatedLink link='/videos' text="VIDEOS" setIsOpened={setIsOpened} />
       </div>
     </div>
   )
