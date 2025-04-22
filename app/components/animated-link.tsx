@@ -22,7 +22,7 @@ export default function AnimatedLink ({ link, text, className }: AnimatedLinkPro
 					onTransitionReady: slideInOut,
 				});
 			}
-		}} href={link} className="z-10 hover:bg-zinc-900 hover:text-white px-2">
+		}} href={link}>
 			<h1 className={className}>{text}</h1>
 		</a>
 	)

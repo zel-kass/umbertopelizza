@@ -62,12 +62,12 @@ export default function DropDownMenu () {
   return (
     <div>
       <div
-        className='flex items-center gap-2 px-8 relative cursor-pointer hover:text-white hover:bg-zinc-900'
+        className='flex gap-2 relative cursor-pointer'
         onClick={() => setIsOpened(!isOpened)}
       >
         <h1>WORKS</h1>
       </div>
-      <div className="invisible h-0 absolute flex flex-col gap-4 px-4 py-2 mt-4 bg-zinc-900 text-white" ref={worksContent}>
+      <div className="invisible h-0 absolute flex flex-col gap-4 mt-4 text-white z-50" ref={worksContent}>
         <AnimatedLink link='/gallery' text="GALLERY" />
         <AnimatedLink link='/videos' text="VIDEOS" />
       </div>

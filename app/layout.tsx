@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NavBar from "@/app/components/nav-bar"
 import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
 					<link rel="stylesheet" href="https://use.typekit.net/mzx0ndo.css"/>
 				</head>
 				<body>
+					<NavBar />
 					{children}
 				</body>
 			</html>

@@ -3,43 +3,50 @@
 import gsap from "gsap";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
+import victor from '../../public/videos/PREVIEWS/MARTINEZ_PREVIEW.png'
+import azote from '../../public/videos/PREVIEWS/AZOTE_PREVIEW.png'
+import corto from '../../public/videos/PREVIEWS/CORTO_PREVIEW.png'
+import george from '../../public/videos/PREVIEWS/GEORGE_PREVIEW.png'
+import wallace from '../../public/videos/PREVIEWS/WALLACE_PREVIEW.png'
+import morceau from '../../public/videos/PREVIEWS/MORCEAU_PREVIEW.png'
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface Project {
 	title1: string;
 	title2: string;
-	src: string;
+	src: string | StaticImport;
 }
 
 const projects = [
 	{
 		title1: "VICTOR MARTINEZ",
 		title2: "MARECHAL",
-		src: "/videos/PREVIEWS/MARTINEZ_PREVIEW.png"
+		src: victor
 	},
 	{
 		title1: "AZOTE",
 		title2: "WALLACE BOI",
-		src: "/videos/PREVIEWS/AZOTE_PREVIEW.png"
+		src: azote
 	},
 	{
 		title1: "CITIZENK",
 		title2: "CORTO MALTESE",
-		src: "/videos/PREVIEWS/CORTO_PREVIEW.png"
+		src: corto
 	},
 	{
 		title1: "GEORGE",
 		title2: "YUNG",
-		src: "/videos/PREVIEWS/GEORGE_PREVIEW.png"
+		src: george
 	},
 	{
 		title1: "WALLACE &",
 		title2: "RYUK",
-		src: "/videos/PREVIEWS/WALLACE_PREVIEW.png"
+		src: wallace
 	},
 	{
 		title1: "MORCEAU",
 		title2: "D'AMOUR",
-		src: "/videos/PREVIEWS/MORCEAU_PREVIEW.png"
+		src: morceau
 	},
 ]
 
@@ -63,7 +70,7 @@ function Project({project} : {project: Project}) {
 		if (isActive) {
 			gsap.to(preview.current, {
 				transformOrigin: "center",
-				width: '10%',
+				width: '8%',
 				duration: 0.5,
 				ease: "power4.out",
 			})
@@ -79,24 +86,19 @@ function Project({project} : {project: Project}) {
 
 	return (
 			<div className="w-full flex items-center justify-center text-lg lg:text-4xl 2xl:text-[4vw] border-t cursor-pointer" onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}}>
-				<div className="flex items-center justify-center w-full h-[10vh]">
+				<div className="flex items-center justify-center w-full h-[10vh] gap-4">
 					<p>{title1}</p>
-					<div className="relative w-60 h-full" ref={preview}>
+					<div className="w-0 h-full relative" ref={preview}>
 						<Image
 							src={src}
 							alt={title1}
 							fill
-							sizes='30vh'
-							className="object-cover"
-              quality={100}
+							sizes="(max-width: 768px) 100vw, 500px"
+							style={{ objectFit: 'cover' }}
 						/>
 					</div>
 					<p>{title2}</p>
 				</div>
-				{/* <div className="flex items-center justify-center gap-2 text-4xl">
-					<div className="w-[2vh] h-[2vh] rounded-full bg-red-600"/>
-					<p>REC</p>
-				</div> */}
 			</div>
 	)
 }

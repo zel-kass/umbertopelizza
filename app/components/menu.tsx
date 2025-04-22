@@ -91,7 +91,7 @@ export default function Menu ({ isOpen }: MenuProps) {
   }, [isOpen])
 
 	return (
-    <div className="w-screen h-screen absolute top-0 left-0 bg-white/50 backdrop-blur-md opacity-0 invisible" ref={menuRef}>
+    <div className="w-screen h-screen absolute top-0 left-0 bg-white/40 backdrop-blur-md opacity-0 invisible" ref={menuRef}>
       <div className="flex flex-col items-center justify-center h-full gap-8" ref={contentRef}>
         {navItems.map((item, index) => (
           <AnimatedLink link={item.href} text={item.label} key={index} className='text-4xl'/>

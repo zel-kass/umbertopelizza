@@ -63,8 +63,8 @@ export default function BurgerButton({ isOpen, toggle }: BurgerButtonProps) {
   return (
     <button onClick={toggle} aria-label="Toggle menu" className="flex items-center justify-center z-10 cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" className="cursor-pointer">
-        <rect ref={topBarRef} width="28" height="5" x="0" y="6" fill="#27272a" />
-        <rect ref={bottomBarRef} width="28" height="5" x="0" y="18" fill="#27272a" />
+        <rect ref={topBarRef} width="28" height="5" x="0" y="6" fill="white" />
+        <rect ref={bottomBarRef} width="28" height="5" x="0" y="18" fill="white" />
       </svg>
     </button>
   )
