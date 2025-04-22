@@ -7,9 +7,6 @@ export default function Photos() {
 	return (
     <ReactLenis root>
 			<div className="min-h-screen">
-				<div className="fixed w-full top-0 left-0 z-10">
-					<NavBar />
-				</div>
 				<div className="mt-[10vh]">
 					<ListedGallery />
 				</div>

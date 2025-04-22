@@ -7,7 +7,7 @@ import DropDownMenu from "@/app/components/dropdown-button";
 export default function NavBar () {
 
 	return(
-		<nav className="w-full fixed top-0 mix-blend-exclusion text-white" aria-label="Main navigation">
+		<nav className="w-full fixed top-0 z-50 mix-blend-exclusion text-white" aria-label="Main navigation">
 			<BurgerMenu />
 			<div className="hidden md:flex w-full px-4 lg:px-8 py-2 flex-col sm:flex-row justify-between items-center">
 				<AnimatedLink link="/home" text="PELIZZA" className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl"/>
