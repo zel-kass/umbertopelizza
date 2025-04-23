@@ -54,7 +54,7 @@ function Section1 () {
 		gsap.set("#info p .line span", {
 			y: 200,
 			display: "block",
-			marginTop: 10,
+			paddingTop: 10,
 			opacity: 0,
 		})
 
@@ -78,7 +78,7 @@ function Section1 () {
 	return (
 		<main className="flex flex-col justify-end uppercase gap-[20vh]">
 			<div className='flex flex-col justify-center items-center gap-10 text-center text-zinc-900 px-[5vw]' ref={container} id="info">
-				<p className="lg:text-2xl xl:text-5xl 2xl:text-7xl">
+				<p className="lg:text-2xl xl:text-5xl">
 				nous sommes une agence créative avec un style visuel unique et une écoute attentive. Chaque projet est une collaboration : nous mêlons nos idées à vos besoins pour créer des contenus qui vous ressemblent. De la conception au tournage, jusqu&apos;à la livraison finale, nous prenons en charge chaque étape pour vous offrir des formats sur-mesure, adaptés à vos envies et à votre univers.
 				</p>
 			</div>

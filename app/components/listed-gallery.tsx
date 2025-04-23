@@ -1,18 +1,18 @@
 'use client';
 
-import Image from 'next/image';
-import { asapes } from '@/lib/exports/asapes-export';
-import { authroz } from '@/lib/exports/authroz-export';
-import { outsoul } from '@/lib/exports/outsoul-export'
-import { jap_meta } from '@/lib/exports/jap_meta-export'
-import type { StaticImageData } from 'next/image';
+// import Image from 'next/image';
+// import { asapes } from '@/lib/exports/asapes-export';
+// import { authroz } from '@/lib/exports/authroz-export';
+// import { outsoul } from '@/lib/exports/outsoul-export'
+// import { jap_meta } from '@/lib/exports/jap_meta-export'
+// import type { StaticImageData } from 'next/image';
 
-import gsap from 'gsap';
-import { Observer } from 'gsap/Observer';
-import { useEffect } from 'react';
+// import gsap from 'gsap';
+// import { Observer } from 'gsap/Observer';
+// import { useEffect } from 'react';
 // import { useState, useEffect, useRef } from 'react';
 
-gsap.registerPlugin(Observer);
+// gsap.registerPlugin(Observer);
 
 // const projects = {
 //   1: {
@@ -25,29 +25,29 @@ gsap.registerPlugin(Observer);
 //   },
 // }
 
-const projects = [
-	{
-		name: "JAP META",
-		photos: jap_meta,
-	},
-	{
-		name: "OUTSOUL",
-		photos: outsoul,
-	},
-	{
-		name: "ASAPES",
-		photos: asapes,
-	},
-	{
-		name: "AUTHROZ",
-		photos: authroz,
-	},
-]
+// const projects = [
+// 	{
+// 		name: "JAP META",
+// 		photos: jap_meta,
+// 	},
+// 	{
+// 		name: "OUTSOUL",
+// 		photos: outsoul,
+// 	},
+// 	{
+// 		name: "ASAPES",
+// 		photos: asapes,
+// 	},
+// 	{
+// 		name: "AUTHROZ",
+// 		photos: authroz,
+// 	},
+// ]
 
-interface PhotoGalleryProps {
-	title: string;
-	photos: StaticImageData[];
-}
+// interface PhotoGalleryProps {
+// 	title: string;
+// 	photos: StaticImageData[];
+// }
 
 export default function ListedGallery() {
 	// const [counter, setCounter] = useState(1);
@@ -101,51 +101,56 @@ export default function ListedGallery() {
       
   //   }
   // }, [counter])
-	useEffect(() => {
-		gsap.to("#placeholder", {
-			height: '100%',
-			duration: 1.5,
-			ease: "power2.out",
-			stagger: 0.05,
-			delay: 0.1,
-		})
-	})
+	// useEffect(() => {
+	// 	gsap.to("#placeholder", {
+	// 		height: '100%',
+	// 		duration: 1.5,
+	// 		ease: "power2.out",
+	// 		stagger: 0.05,
+	// 		delay: 0.1,
+	// 	})
+	// })
 
-	return (
-		<main className='flex h-full w-full flex-col gap-10 items-center justify-center relative'>
-			{projects.map((project, key) => (
-				<PhotoGallery title={project.name} photos={project.photos} key={key} />
-			))}
-		</main>
-	);
-}
-
-function PhotoGallery({ title, photos }: PhotoGalleryProps) {
-  useEffect(() => {
-
-    gsap.set("#placeholder", {
-      height: '0',
-    })
-  }, [])
-
+	// return (
+	// 	<main className='flex h-full w-full flex-col gap-10 items-center justify-center relative'>
+	// 		{projects.map((project, key) => (
+	// 			<PhotoGallery title={project.name} photos={project.photos} key={key} />
+	// 		))}
+	// 	</main>
+	// );
   return (
-    <div className='flex flex-col gap-4 px-8 w-full'>
-      <h3>{title}</h3>
-      <div className='flex flex-col md:flex-row gap-2 h-[20vh] w-full'>
-        {photos.map((photo, key) => (
-          <div key={key} className='relative w-60' id='placeholder'>
-            <Image
-              src={photo.src}
-              alt={`"jap_meta${key}"`}
-              fill
-              sizes='30vh'
-              className='object-cover'
-              quality={100}
-              priority
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <div className="flex items-center justify-center h-screen w-full uppercase">
+			<h1 className="text-4xl">🚧cette page est en construction🚧</h1>
+		</div>
   )
 }
+
+// function PhotoGallery({ title, photos }: PhotoGalleryProps) {
+//   useEffect(() => {
+
+//     gsap.set("#placeholder", {
+//       height: '0',
+//     })
+//   }, [])
+
+//   return (
+//     <div className='flex flex-col gap-4 px-8 w-full'>
+//       <h3>{title}</h3>
+//       <div className='flex flex-col md:flex-row gap-2 h-[20vh] w-full'>
+//         {photos.map((photo, key) => (
+//           <div key={key} className='relative w-60' id='placeholder'>
+//             <Image
+//               src={photo.src}
+//               alt={`"jap_meta${key}"`}
+//               fill
+//               sizes='30vh'
+//               className='object-cover'
+//               quality={100}
+//               priority
+//             />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }

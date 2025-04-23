@@ -59,7 +59,7 @@ export default function Footer() {
 				<div className="flex flex-col gap-y-3">
 					<a
 						target="_blank"
-						href="https://www.instagram.com/umbertoz_/"
+						href="https://www.instagram.com/vittozz_/"
 						className="hover:text-primary transition-colors"
 						rel="noopener noreferrer"
 					>
