@@ -1,26 +1,29 @@
 'use client'
 
+import MuxPlayer from "@mux/mux-player-react"
+
 import ReactLenis from "lenis/react"
-import OptimizedVideo from "@/app/components/optimized-video"
-import HorizontalSection from "@/app/components/horizontal-section"
+import NavBar from "@/app/components/NavBar"
 
 export default function Home() {
-
 	return (
-    <ReactLenis root>
-      <main className="flex flex-col">
-        <div className="w-full h-screen aspect-video z-[-1]">
-          <OptimizedVideo
-            hlsSrc="/videos/BANDEDEMO/BANDEDEMOFINAL.m3u8"
-            mp4Src="/videos/BANDEDEMO/BANDEDEMOFINAL_compressed.mp4"
-            poster="/videos/BANDEDEMO/BANDEDEMOFINAL-poster.jpg"
-            autoPlay={true}
-            loop={true}
-            muted={true}
-          />
-        </div>
-      </main>
-			<HorizontalSection />
-    </ReactLenis>
+		<ReactLenis root>
+			<NavBar />
+			<main className="flex flex-col h-screen w-screen p-4">
+				<div className="h-full w-full relative z-0 overflow-hidden">
+					<MuxPlayer
+						playbackId={"pXenY200X6FHzLmpAgMyTpN3zB2dHlnHJ02J5X028TptPM"}
+						loop
+						muted
+						// autoPlay
+						style={{
+							height: '100%',
+							width: '100%',
+							pointerEvents: 'none',
+						}}
+					/>
+				</div>
+			</main>
+		</ReactLenis>
 	)
 }

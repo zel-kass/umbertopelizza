@@ -1,17 +1,18 @@
 'use client';
 
 import ReactLenis from "lenis/react";
-import Footer from "@/app/components/footer";
-
+import Footer from "@/app/components/Footer";
+import NavBar from "@/app/components/NavBar";
 
 export default function Contact() {
 	return (
     <ReactLenis root>
-      <div className="px-8 mt-[10vh]">
-        <div className="w-full flex justify-between items-center text-4xl lg:text-6xl">
-          <h2 className="lg:max-w-[50vw]">DISCUTONS DE VOUS, VOTRE ENTREPRISE, VOS PROJETS, ET VOS OBJECTIFS</h2>
-        </div>
-        <div className="flex flex-col gap-x-4 lg:flex-row justify-between mt-[20vh]">
+			<NavBar />
+      <div className="flex flex-col h-screen justify-between px-8 relative">
+				<div className="h-[3.5em] w-full flex items-end relative">
+				</div>
+				<h2 className="lg:max-w-[50vw]">LET&apos;S WORK TOGETHER !</h2>
+        <div className="flex flex-col gap-x-4 lg:flex-row justify-between">
           <div>
             <h3>VOUS AVEZ UN PROJET?</h3>
             <h3>NOUS LUI DONNONS VIE EN IMAGES</h3>
@@ -25,9 +26,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-[20vh] mb-[5vh]">
-        <Footer />
+				<Footer />
       </div>
     </ReactLenis>
 	);

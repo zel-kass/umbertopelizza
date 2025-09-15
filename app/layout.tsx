@@ -1,29 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "@/app/components/nav-bar"
 import { ViewTransitions } from "next-view-transitions";
+import { switzer } from "@/app/styles/fonts";
 
 export const metadata: Metadata = {
-  title: "Umberto Maria Pelizza",
-  description: "Portfolio",
+	title: "Umberto Maria Pelizza",
+	description: "Portfolio",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-		<ViewTransitions>
-			<html lang="en">
-				<head>
-					<link rel="stylesheet" href="https://use.typekit.net/mzx0ndo.css"/>
-				</head>
-				<body>
-					<NavBar />
+	return (
+		<html lang="en" data-scroll-behavior="smooth" className={switzer.className}>
+			<body className="antialiased">
+				<ViewTransitions>
 					{children}
-				</body>
-			</html>
-		</ViewTransitions>
-  );
+				</ViewTransitions>
+			</body>
+		</html>
+	);
 }

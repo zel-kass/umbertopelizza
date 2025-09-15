@@ -2,24 +2,175 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, p {
-	font-family: lorimer-no-2, sans-serif;
-	font-weight: 900;
-	font-style: normal;
+/* Desktop */
+:root {
+	--size-unit: 16;
+	/* body font-size in design - no px */
+	--size-container-ideal: 1920;
+	/* screen-size in design - no px */
+	--size-container-min: 992px;
+	--size-container-max: 1920px;
+	--size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+	--size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
 }
 
-h3, input {
-	font-family: lorimer-no-2, sans-serif;
-	font-weight: 600;
-	font-style: normal;
+/* Tablet */
+@media screen and (max-width: 991px) {
+	:root {
+		--size-container-ideal: 834;
+		/* screen-size in design - no px */
+		--size-container-min: 768px;
+		--size-container-max: 991px;
+	}
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+	:root {
+		--size-container-ideal: 768;
+		/* Keep closer to tablet to avoid jump */
+		--size-container-min: 480px;
+		--size-container-max: 767px;
+	}
+}
+
+/* Mobile Portrait */
+/* @media screen and (max-width: 479px) {
+	:root {
+		--size-container-ideal: 480;
+		--size-container-min: 320px;
+		--size-container-max: 479px;
+	}
+} */
+
+/* ------------------------- Viewportheight ------------------------------ */
+
+:root {
+	--vh-in-px: 8px;
+	/* Default fallback */
+	--vh: var(--vh-in-px);
+	--dvh: var(--vh);
+	/* Same as original VH */
+	--svh: var(--vh);
+	--lvh: var(--vh);
+}
+
+/* Only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+	:root {
+		--vh: 1vh;
+	}
+
+	/* If the device supports svh and lvh */
+	@supports (height: 1svh) {
+		:root {
+			--vh: 1vh;
+			/* Viewport height */
+			--dvh: 1dvh;
+			/* Dynamic viewport height */
+			--svh: 1svh;
+			/* Small viewport height */
+			--lvh: 1lvh;
+			/* Large viewport height */
+		}
+	}
+}
+
+/* Only on touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+	/* Set vh to dvh initially */
+	:root {
+		--vh: 1vh;
+	}
+
+	/* If the device supports lvh */
+	@supports (height: 1lvh) {
+		:root {
+			--dvh: 1dvh;
+			/* Dynamic viewport height */
+			--svh: 1svh;
+			/* Small viewport height */
+			--lvh: 1lvh;
+			/* Large viewport height */
+		}
+	}
+}
+
+/* Apply the scaling system */
+html {
+	font-size: var(--size-font);
+	box-sizing: border-box;
+}
+
+/* Responsive Layout Variables - Scale with viewport */
+:root {
+	--container-padding: 3em;
+	--section-padding: 12em;
+	--gap-xl: 4.5em;
+	--gap-l: 3em;
+	--gap: 1.5em;
+	--gap-s: 1em;
+	--gap-xs: 0.75em;
+	--border-radius: 0.2em;
+	--border-radius-s: .5em;
+	--border-radius-m: 1em;
+	--border-radius-l: 1.5em;
 }
 
 body {
-	font-family: "lora", serif;
+	background: white;
+	color: var(--color-foreground);
+	line-height: 1.5;
+	font-weight: 600;
+	font-family: var(--font-switzer), system-ui, sans-serif;
+}
+
+
+h1 {
+	font-size: 5em;
+	line-height: 1;
+	font-style: normal;
+}
+
+h2 {
+	font-size: 2em;
+	line-height: 1;
+	font-style: normal;
+}
+
+h3,
+input {
+	font-style: normal;
+}
+
+span {
+	font-size: 1.2em;
+	font-style: normal;
+}
+
+.gap-fluid-xl {
+	gap: var(--gap-xl);
+}
+
+.gap-fluid-l {
+	gap: var(--gap-l);
+}
+
+.gap-fluid-m {
+	gap: var(--gap);
+}
+
+.gap-fluid-s {
+	gap: var(--gap-s);
+}
+
+.gap-fluid-xs {
+	gap: var(--gap-xs);
 }
 
 @layer base {
-  :root {
+	:root {
 		--background: 0 0% 100%;
 		--foreground: 0 0% 3.9%;
 		--card: 0 0% 100%;
@@ -46,7 +197,8 @@ body {
 		--chart-5: 27 87% 67%;
 		--radius: 0.5rem;
 	}
-  .dark {
+
+	.dark {
 		--background: 0 0% 3.9%;
 		--foreground: 0 0% 98%;
 		--card: 0 0% 3.9%;
@@ -76,7 +228,7 @@ body {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none !important;
+	animation: none !important;
 }
 
 ::view-transition-group(root) {
@@ -101,11 +253,12 @@ body {
 
 
 @layer base {
-  * {
-    @apply border-border;
+	* {
+		@apply border-border;
 	}
-  body {
-    @apply bg-background text-foreground;
+
+	body {
+		@apply bg-background text-foreground;
 	}
 }
 
@@ -127,4 +280,85 @@ body {
 .line {
 	overflow: hidden;
 	user-select: none;
+}
+
+@keyframes noise-d4232bc3 {
+	0% {
+		transform: translate3d(1%, -1%, 0)
+	}
+
+	10% {
+		transform: translate3d(-5%, -2%, 0)
+	}
+
+	20% {
+		transform: translate3d(10%, 5%, 0)
+	}
+
+	30% {
+		transform: translate3d(5%, -11%, 0)
+	}
+
+	40% {
+		transform: translate3d(-12%, -5%, 0)
+	}
+
+	50% {
+		transform: translate3d(10%, 9%, 0)
+	}
+
+	60% {
+		transform: translate3d(15%, 0, 0)
+	}
+
+	70% {
+		transform: translate3d(-10%, 8%, 0)
+	}
+
+	80% {
+		transform: translate3d(10%, 2%, 0)
+	}
+
+	90% {
+		transform: translate3d(-1%, 5%, 0)
+	}
+
+	to {
+		transform: translate3d(0, 8%, 0)
+	}
+}
+
+mux-player {
+	--media-object-fit: cover;
+	--media-object-position: center;
+  /* Hide all controls at once */
+  /* --controls: none; */
+
+  /* Hide the error dialog */
+  /* --dialog: none; */
+
+  /* Hide the loading indicator */
+  /* --loading-indicator: none; */
+
+  /* Target all sections by excluding the section prefix */
+  --play-button: none;
+  --live-button: none;
+  --seek-backward-button: none;
+  --seek-forward-button: none;
+  --mute-button: none;
+  --captions-button: none;
+  --airplay-button: none;
+  --pip-button: none;
+  --fullscreen-button: none;
+  --cast-button: none;
+  --playback-rate-button: none;
+  --volume-range: none;
+  --time-range: none;
+  --time-display: none;
+  --duration-display: none;
+  --rendition-menu-button: none;
+
+  /* Target a specific section by prefixing the CSS var with (top|center|bottom) */
+  /* --center-controls: none;
+  --bottom-play-button: none; */
 }
