@@ -15,7 +15,7 @@ export default function Home() {
 						playbackId={"pXenY200X6FHzLmpAgMyTpN3zB2dHlnHJ02J5X028TptPM"}
 						loop
 						muted
-						// autoPlay
+						autoPlay
 						style={{
 							height: '100%',
 							width: '100%',

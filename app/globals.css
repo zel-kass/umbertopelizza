@@ -341,7 +341,7 @@ mux-player {
   /* --loading-indicator: none; */
 
   /* Target all sections by excluding the section prefix */
-  --play-button: none;
+  /* --play-button: none; */
   --live-button: none;
   --seek-backward-button: none;
   --seek-forward-button: none;
@@ -349,7 +349,7 @@ mux-player {
   --captions-button: none;
   --airplay-button: none;
   --pip-button: none;
-  --fullscreen-button: none;
+  /* --fullscreen-button: none; */
   --cast-button: none;
   --playback-rate-button: none;
   --volume-range: none;
