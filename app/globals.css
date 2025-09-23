@@ -128,13 +128,13 @@ body {
 
 
 h1 {
-	font-size: 5em;
+	font-size: 9em;
 	line-height: 1;
 	font-style: normal;
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 5em;
 	line-height: 1;
 	font-style: normal;
 }
@@ -147,6 +147,12 @@ input {
 span {
 	font-size: 1.2em;
 	font-style: normal;
+}
+
+p {
+	font-size: .8em;
+	font-style: normal;
+	font-weight: 300;
 }
 
 .gap-fluid-xl {
@@ -341,7 +347,7 @@ mux-player {
   /* --loading-indicator: none; */
 
   /* Target all sections by excluding the section prefix */
-  /* --play-button: none; */
+  --play-button: none;
   --live-button: none;
   --seek-backward-button: none;
   --seek-forward-button: none;

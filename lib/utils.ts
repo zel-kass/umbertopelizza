@@ -12,7 +12,7 @@ export default function slideInOut() {
 				transform: 'translateY(0)',
 			},
 			{
-				transform: 'translateY(-35%)',
+				transform: 'translateY(-100%)',
 			}
 		], {
 			duration: 1200,

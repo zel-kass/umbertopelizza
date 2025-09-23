@@ -125,7 +125,7 @@ function ProjectRow({ project, isActive }: ProjectRowProps) {
       ref={boxRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="h-[80px] overflow-hidden">
+      className="h-[6em] overflow-hidden">
       <div ref={overlayRef} className="w-full h-full px-5 flex items-center justify-between">
         <h2 className="text-black">{project.name}</h2>
       </div>
@@ -197,11 +197,8 @@ export default function Photos() {
 				<NavBar />
 				<div>
 					<div className="h-content p-4 mb-16">
-						<div className="h-[35em] w-full flex items-end relative">
-							<div className="flex flex-row justify-between w-full text-white mix-blend-exclusion px-4 z-10">
-								<h1>PHOTO GALLERY</h1>
-								<h1 className="text-end">&apos;22 &apos;25</h1>
-							</div>
+						<div className="h-[25em] w-full flex items-end relative">
+							<h1>PHOTO GALLERY</h1>
 						</div>
 						<div className="w-full border border-neutral-700">
 							<div className="grid grid-row-auto">
