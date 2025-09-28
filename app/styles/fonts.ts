@@ -17,6 +17,11 @@ export const switzer = localFont({
 			weight: "600",
 			style: "normal",
 		},
+		{
+			path: "../fonts/Switzer-Black.otf",
+			weight: "800",
+			style: "normal",
+		},
 	],
 	variable: "--font-switzer",
 	display: "swap",

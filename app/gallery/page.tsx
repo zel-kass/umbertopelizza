@@ -198,7 +198,7 @@ export default function Photos() {
 				<div>
 					<div className="h-content p-4 mb-16">
 						<div className="h-[25em] w-full flex items-end relative">
-							<h1>PHOTO GALLERY</h1>
+							<h1>GALLERY</h1>
 						</div>
 						<div className="w-full border border-neutral-700">
 							<div className="grid grid-row-auto">

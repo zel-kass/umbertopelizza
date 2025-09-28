@@ -51,11 +51,11 @@ export default function Videos() {
 											}}
 										/>
 									</div>
-									<div className="w-full flex flex-row justify-between items-center pr-2">
+									<div className="w-full flex flex-row justify-between items-start pr-2">
 										<h2>{video.name}</h2>
 										<div className="flex flex-col">
 											{video.keywords.map((keyword, keywordIndex) => (
-												<p key={keywordIndex}>{keyword}</p>
+												<span key={keywordIndex}>{keyword}</span>
 											))}
 										</div>
 									</div>

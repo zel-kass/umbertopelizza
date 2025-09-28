@@ -122,7 +122,6 @@ body {
 	background: white;
 	color: var(--color-foreground);
 	line-height: 1.5;
-	font-weight: 600;
 	font-family: var(--font-switzer), system-ui, sans-serif;
 }
 
@@ -131,12 +130,14 @@ h1 {
 	font-size: 9em;
 	line-height: 1;
 	font-style: normal;
+	font-weight: 800;
 }
 
 h2 {
-	font-size: 5em;
+	font-size: 3em;
 	line-height: 1;
 	font-style: normal;
+	font-weight: 600;
 }
 
 h3,
@@ -147,10 +148,11 @@ input {
 span {
 	font-size: 1.3em;
 	font-style: normal;
+	font-weight: 800;
 }
 
 p {
-	font-size: .8em;
+	font-size: 1.4em;
 	font-style: normal;
 	font-weight: 300;
 }
