@@ -31,7 +31,7 @@ export default function Videos() {
 					<div className="h-content">
 						<div className="grid lg:grid-cols-2 grid-rows-auto">
 							{videos.map((video, index) => (
-								<div className="relative p-4 flex flex-col items-center" key={index}>
+								<div className="relative lg:p-4 flex flex-col items-center" key={index}>
 									<div
 										className="w-full relative aspect-video mb-4 overflow-hidden"
 										onMouseEnter={() => handleMouseEnter(index)}

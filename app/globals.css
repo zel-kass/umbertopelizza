@@ -35,13 +35,13 @@
 }
 
 /* Mobile Portrait */
-/* @media screen and (max-width: 479px) {
+@media screen and (max-width: 479px) {
 	:root {
 		--size-container-ideal: 480;
 		--size-container-min: 320px;
 		--size-container-max: 479px;
 	}
-} */
+}
 
 /* ------------------------- Viewportheight ------------------------------ */
 
@@ -145,7 +145,7 @@ input {
 }
 
 span {
-	font-size: 1.2em;
+	font-size: 1.3em;
 	font-style: normal;
 }
 
@@ -153,6 +153,31 @@ p {
 	font-size: .8em;
 	font-style: normal;
 	font-weight: 300;
+}
+
+@media screen and (max-width: 479px) {
+	h1 {
+		font-size: 5em;
+		line-height: 1;
+		font-style: normal;
+	}
+
+	h2 {
+		font-size: 3em;
+		line-height: 1;
+		font-style: normal;
+	}
+
+	span {
+		font-size: 1.4em;
+		font-style: normal;
+	}
+
+	p {
+		font-size: .8em;
+		font-style: normal;
+		font-weight: 300;
+	}
 }
 
 .gap-fluid-xl {
@@ -337,34 +362,34 @@ p {
 mux-player {
 	--media-object-fit: cover;
 	--media-object-position: center;
-  /* Hide all controls at once */
-  /* --controls: none; */
+	/* Hide all controls at once */
+	/* --controls: none; */
 
-  /* Hide the error dialog */
-  /* --dialog: none; */
+	/* Hide the error dialog */
+	/* --dialog: none; */
 
-  /* Hide the loading indicator */
-  /* --loading-indicator: none; */
+	/* Hide the loading indicator */
+	/* --loading-indicator: none; */
 
-  /* Target all sections by excluding the section prefix */
-  --play-button: none;
-  --live-button: none;
-  --seek-backward-button: none;
-  --seek-forward-button: none;
-  --mute-button: none;
-  --captions-button: none;
-  --airplay-button: none;
-  --pip-button: none;
-  /* --fullscreen-button: none; */
-  --cast-button: none;
-  --playback-rate-button: none;
-  --volume-range: none;
-  --time-range: none;
-  --time-display: none;
-  --duration-display: none;
-  --rendition-menu-button: none;
+	/* Target all sections by excluding the section prefix */
+	--play-button: none;
+	--live-button: none;
+	--seek-backward-button: none;
+	--seek-forward-button: none;
+	--mute-button: none;
+	--captions-button: none;
+	--airplay-button: none;
+	--pip-button: none;
+	/* --fullscreen-button: none; */
+	--cast-button: none;
+	--playback-rate-button: none;
+	--volume-range: none;
+	--time-range: none;
+	--time-display: none;
+	--duration-display: none;
+	--rendition-menu-button: none;
 
-  /* Target a specific section by prefixing the CSS var with (top|center|bottom) */
-  /* --center-controls: none;
+	/* Target a specific section by prefixing the CSS var with (top|center|bottom) */
+	/* --center-controls: none;
   --bottom-play-button: none; */
 }

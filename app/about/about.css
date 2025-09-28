@@ -1,0 +1,36 @@
+.about-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: calc(var(--vh) * 100);
+	padding-top: 10em;
+	padding-inline: 2em;
+	position: relative;
+}
+
+.about-content {
+	display: flex;
+	flex-direction: column;
+	pointer-events: none;
+	gap: 5em;
+}
+
+.about-content__text {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 5em;
+	padding-inline: 10em;
+}
+
+@media screen and (max-width: 991px) {
+	.about-content {
+		gap: 3em;
+		margin-bottom: 5em;
+	}
+
+	.about-content__text {
+		grid-template-columns: 1fr;
+		gap: 2em;
+		padding-inline: 2em;
+	}
+}

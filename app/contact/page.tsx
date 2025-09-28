@@ -8,9 +8,7 @@ export default function Contact() {
 	return (
     <ReactLenis root>
 			<NavBar />
-      <div className="flex flex-col h-screen justify-between px-8 relative">
-				<div className="h-[3.5em] w-full flex items-end relative">
-				</div>
+      <div className="flex flex-col h-screen justify-between px-8 relative pt-[10em]">
 				<h2 className="lg:max-w-[50vw]">LET&apos;S WORK TOGETHER !</h2>
         <div className="flex flex-col gap-x-4 lg:flex-row justify-between">
           <div>
