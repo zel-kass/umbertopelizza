@@ -162,9 +162,6 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
       <div className="overflow-hidden">
         {shouldRender && (
           <>
-            {/* <div className="grid grid-rows-[auto] grid-cols-5 gap-10 mb-10">
-              <h2 className="col-start-1 text-2xl uppercase font-[700]">Description</h2>
-            </div> */}
             {project.images.length > 0 && (
               <div className="flex gap-5 relative h-[50em] overflow-hidden">
                 {project.images?.map((image, index) => (
@@ -196,7 +193,7 @@ export default function Photos() {
 			<div className="h-screen max-w-screen relative">
 				<NavBar />
 				<div>
-					<div className="h-content p-4 mb-16">
+					<div className="flex flex-col space-y-10 h-content p-4">
 						<div className="h-[25em] w-full flex items-end relative">
 							<h1>GALLERY</h1>
 						</div>
@@ -216,8 +213,8 @@ export default function Photos() {
 								))}
 							</div>
 						</div>
+						<Footer />
 					</div>
-					<Footer />
 				</div>
 			</div>
     </ReactLenis>
