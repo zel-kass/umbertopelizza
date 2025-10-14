@@ -9,24 +9,36 @@ import ScrambleHover from "@/components/fancy/text/scramble-hover"
 interface AnimatedLinkProps {
 	link: string;
 	text: string;
+	fontSize?: string | number;
 	setIsOpened?: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function AnimatedLink ({ link, text, setIsOpened }: AnimatedLinkProps) {
+export default function AnimatedLink ({
+	link,
+	text,
+	fontSize,
+	setIsOpened,
+}: AnimatedLinkProps) {
 	const router = useTransitionRouter();
 	const pathname = usePathname();
 
+	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+		e.preventDefault();
+		if (pathname !== link) {
+			if (setIsOpened)
+				setIsOpened(false);
+			router.push(link, {
+				onTransitionReady: slideInOut,
+			});
+		}
+	}
+
 	return (
-		<a onClick={(e) => {
-			e.preventDefault();
-			if (pathname !== link) {
-				if (setIsOpened)
-					setIsOpened(false);
-				router.push(link, {
-					onTransitionReady: slideInOut,
-				});
-			}
-		}} href={link}>
+		<a 
+			onClick={handleClick} 
+			href={link}
+			className="cursor-pointer"
+		>
 			<ScrambleHover
         text={text}
         scrambleSpeed={50}
@@ -34,6 +46,7 @@ export default function AnimatedLink ({ link, text, setIsOpened }: AnimatedLinkP
         useOriginalCharsOnly={false}
         className="cursor-pointer"
         characters="PELIZZA"
+				fontSize={fontSize}
       />
 		</a>
 	)

@@ -14,7 +14,9 @@ export default function BurgerMenu () {
 
 	return (
 		<div className="flex md:hidden w-full justify-between items-center p-4">
-			<AnimatedLink link="/home" text="PELIZZA" />
+			<div className="z-10">
+				<AnimatedLink link="/home" text="PELIZZA" />
+			</div>
 			<BurgerButton isOpen={isOpen} toggle={toggleMenu}/>
 			<Menu isOpen={isOpen} />
 		</div>

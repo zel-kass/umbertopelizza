@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { motion } from "motion/react"
-
 import { cn } from "@/lib/utils"
 
 interface ScrambleHoverProps {
@@ -15,6 +13,7 @@ interface ScrambleHoverProps {
   characters?: string
   className?: string
   scrambledClassName?: string
+  fontSize?: string | number
 }
 
 const ScrambleHover: React.FC<ScrambleHoverProps> = ({
@@ -27,6 +26,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
   scrambledClassName,
   sequential = false,
   revealDirection = "start",
+  fontSize,
   ...props
 }) => {
   const [displayText, setDisplayText] = useState(text)
@@ -34,6 +34,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
   const [isScrambling, setIsScrambling] = useState(false)
   const [revealedIndices, setRevealedIndices] = useState(new Set<number>())
   
+  const spanRef = useRef<HTMLSpanElement>(null)
   const revealedIndicesRef = useRef(new Set<number>())
 
   useEffect(() => {
@@ -169,11 +170,19 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
     maxIterations,
   ])
 
+  const fontSizeStyle = fontSize 
+    ? typeof fontSize === 'number' 
+      ? `${fontSize}px` 
+      : fontSize 
+    : undefined
+
   return (
-    <motion.span
-      onHoverStart={() => setIsHovering(true)}
-      onHoverEnd={() => setIsHovering(false)}
+    <span
+      ref={spanRef}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
       className={cn("inline-block whitespace-pre-wrap", className)}
+      style={{ fontSize: fontSizeStyle }}
       {...props}
     >
       <span className="sr-only">{displayText}</span>
@@ -191,7 +200,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
           </span>
         ))}
       </span>
-    </motion.span>
+    </span>
   )
 }
 
