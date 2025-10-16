@@ -1,7 +1,7 @@
 'use client'
 
-import slideInOut from "@/lib/utils"
 import { useTransitionRouter } from "next-view-transitions"
+import AnimatedLink from "@/app/components/AnimatedLink";
 
 export default function Footer() {
 	const router = useTransitionRouter();
@@ -11,32 +11,19 @@ export default function Footer() {
 			<div>
 				<ul className="flex flex-col gap-y-3 font-bold">
 					<li>
-						<a
-							onClick={(e) => {
-								e.preventDefault()
-								router.push("/gallery", {
-									onTransitionReady: slideInOut,
-								})
-							}}
-							href="/gallery"
-							className="block"
-						>
-							<h3 className="cursor-pointer hover:text-primary transition-colors">GALLERY</h3>
-						</a>
+						<AnimatedLink link="/home" text="HOME" />
 					</li>
 					<li>
-						<a
-							onClick={(e) => {
-								e.preventDefault()
-								router.push("/videos", {
-									onTransitionReady: slideInOut,
-								})
-							}}
-							href="/videos"
-							className="block"
-						>
-							<h3 className="cursor-pointer hover:text-primary transition-colors">VIDEOS</h3>
-						</a>
+						<AnimatedLink link="/gallery" text="GALLERY" />
+					</li>
+					<li>
+						<AnimatedLink link="/videos" text="VIDEOS" />
+					</li>
+					<li>
+						<AnimatedLink link="/about" text="ABOUT" />
+					</li>
+					<li>
+						<AnimatedLink link="/contact" text="CONTACT" />
 					</li>
 				</ul>
 			</div>

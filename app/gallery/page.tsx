@@ -42,7 +42,7 @@ function ProjectRow({ project, isActive }: ProjectRowProps) {
         {
           y: "0%",
           duration: 0.5,
-          ease: "power3.out",
+          ease: "power4.out",
         }
       );
 
@@ -54,7 +54,7 @@ function ProjectRow({ project, isActive }: ProjectRowProps) {
         {
           y: "0%",
           duration: 0.5,
-          ease: "power3.out",
+          ease: "power4.out",
         }
       );
     }
@@ -73,7 +73,7 @@ function ProjectRow({ project, isActive }: ProjectRowProps) {
       {
         y: fromTop ? "100%" : "-100%",
         duration: 0.5,
-        ease: "power3.out",
+        ease: "power4.out",
       }
     );
 
@@ -85,7 +85,7 @@ function ProjectRow({ project, isActive }: ProjectRowProps) {
       {
         y: "-100%",
         duration: 0.5,
-        ease: "power3.out",
+        ease: "power4.out",
       }
     );
   };
