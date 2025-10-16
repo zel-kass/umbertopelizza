@@ -1,11 +1,8 @@
 'use client'
 
-import { useTransitionRouter } from "next-view-transitions"
 import AnimatedLink from "@/app/components/AnimatedLink";
 
 export default function Footer() {
-	const router = useTransitionRouter();
-
 	return (
 		<footer className="mb-[5vh] flex flex-col lg:flex-row justify-between gap-8">
 			<div>
