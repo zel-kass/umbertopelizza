@@ -1,67 +1,46 @@
 [
 	{
 		"name": "JAP META",
-		"description": "Le Japon",
 		"images": ["JAP_META/jap_meta1", "JAP_META/jap_meta2", "JAP_META/jap_meta3", "JAP_META/jap_meta4", "JAP_META/jap_meta5", "JAP_META/jap_meta6", "JAP_META/jap_meta7"]
 	},
 	{
-		"name": "CK TRIBU",
-		"description": "Le Japon",
+		"name": "_SHOW_TIME_",
 		"images": []
 	},
 	{
-		"name": "ED WESTWICK",
-		"description": "Le Japon",
+		"name": "ASSAPES",
 		"images": []
 	},
 	{
-		"name": "WZRDGRDN",
-		"description": "Le Japon",
+		"name": "AUTHENTIC ROZ IAD _FITTING ROOM_",
 		"images": []
 	},
 	{
-		"name": "CK GUCCI",
-		"description": "Le Japon",
+		"name": "AUTHENTIC ROZ IAD CAMPAGN PARIS",
 		"images": []
 	},
 	{
-		"name": "QUICKSILVER X ATALETICA",
-		"description": "Le Japon",
+		"name": "AUTHENTIC ROZ IAD CAMPAGN PARIS II",
 		"images": []
 	},
 	{
-		"name": "AUTHROZ I",
-		"description": "Le Japon",
+		"name": "AUTHENTIC ROZ MIAMI",
 		"images": []
 	},
 	{
-		"name": "AUTHROZ II",
-		"description": "Le Japon",
+		"name": "AUTHENTIC ROZ NEW YORK",
 		"images": []
 	},
 	{
-		"name": "CK POETE",
-		"description": "Le Japon",
+		"name": "CITIZEN K _BADDIES_",
 		"images": []
 	},
 	{
-		"name": "RABANNE",
-		"description": "Le Japon",
+		"name": "RABANNE K _REPRIS DE JUSTICE_",
 		"images": []
 	},
 	{
-		"name": "OUTSOUL",
-		"description": "Le Japon",
-		"images": []
-	},
-	{
-		"name": "AUTHROZ TT",
-		"description": "Le Japon",
-		"images": []
-	},
-	{
-		"name": "AUTHROZ FS",
-		"description": "Le Japon",
+		"name": "CITIZEN K x OFAHOUND",
 		"images": []
 	}
 ]

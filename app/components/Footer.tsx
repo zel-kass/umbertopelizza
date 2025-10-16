@@ -8,9 +8,6 @@ export default function Footer() {
 			<div>
 				<ul className="flex flex-col gap-y-3 font-bold">
 					<li>
-						<AnimatedLink link="/home" text="HOME" />
-					</li>
-					<li>
 						<AnimatedLink link="/gallery" text="GALLERY" />
 					</li>
 					<li>

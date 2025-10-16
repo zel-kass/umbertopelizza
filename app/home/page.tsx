@@ -16,6 +16,9 @@ export default function Home() {
 						loop
 						muted
 						autoPlay
+						primaryColor="#fff"
+						accentColor="#333"
+						thumbnailTime={0}
 						style={{
 							height: '100%',
 							width: '100%',

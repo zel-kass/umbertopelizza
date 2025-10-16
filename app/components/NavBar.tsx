@@ -10,8 +10,8 @@ const routes = [
 		label: 'WORKS', 
 		href: '/works',
 		children: [
+			{ label: 'VIDEOS', href: '/videos' },
 			{ label: 'GALLERY', href: '/gallery' },
-			{ label: 'VIDEOS', href: '/videos' }
 		]
 	},
 	{ label: 'ABOUT', href: '/about' },

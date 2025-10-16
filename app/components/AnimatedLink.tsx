@@ -4,7 +4,7 @@ import slideInOut from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { useTransitionRouter } from "next-view-transitions";
 import { Dispatch, SetStateAction } from "react";
-import ScrambleHover from "@/components/fancy/text/scramble-hover"
+import ScrambleHover from "@/app/components/ScrambleHover"
 
 interface AnimatedLinkProps {
 	link: string;
