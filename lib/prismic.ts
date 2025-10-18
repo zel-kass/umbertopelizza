@@ -1,9 +1,9 @@
 import { createClient } from "@prismicio/client";
 
-const repositoryName = process.env.PRISMIC_REPOSITORY_NAME;
+const repositoryName = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
 
 if (!repositoryName) {
-  throw new Error("PRISMIC_REPOSITORY_NAME is not defined");
+  throw new Error("NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME is not defined");
 }
 
 export const client = createClient(repositoryName);
