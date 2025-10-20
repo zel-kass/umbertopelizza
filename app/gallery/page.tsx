@@ -179,7 +179,7 @@ function ProjectRow({ project, isActive }: ProjectRowProps) {
 
   return (
     <>
-      {teaserImage && (
+      {teaserImage?.url && (
         <div
           ref={teaserRef}
           className="fixed pointer-events-none z-50"
