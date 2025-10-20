@@ -363,11 +363,6 @@ p {
 mux-player {
 	--media-object-fit: cover;
 	--media-object-position: center;
-	/* --controls: none; */
-
-	/* --dialog: none; */
-
-	/* --loading-indicator: none; */
 
 	--play-button: none;
 	--live-button: none;
@@ -377,15 +372,9 @@ mux-player {
 	--captions-button: none;
 	--airplay-button: none;
 	--pip-button: none;
-	/* --fullscreen-button: none; */
 	--cast-button: none;
 	--playback-rate-button: none;
 	--volume-range: none;
-	/* --time-range: none; */
 	--time-display: none;
-	/* --duration-display: none; */
 	--rendition-menu-button: none;
-
-	/* --center-controls: none; */
-	/* --bottom-play-button: none; */
 }
