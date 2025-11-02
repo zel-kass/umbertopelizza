@@ -26,6 +26,7 @@ interface Project {
 interface ProjectRowProps {
 	project: Project;
 	isActive: boolean;
+	teaserImageUrl?: string;
 }
 
 interface ProjectDetailsProps {
@@ -33,188 +34,188 @@ interface ProjectDetailsProps {
 	show: boolean;
 }
 
-function ProjectRow({ project, isActive }: ProjectRowProps) {
-  const boxRef = useRef<HTMLDivElement | null>(null);
-  const overlayRef = useRef<HTMLDivElement | null>(null);
-  const hiddenOverlayRef = useRef<HTMLDivElement | null>(null);
-  const teaserRef = useRef<HTMLDivElement | null>(null);
+function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
+	const boxRef = useRef<HTMLDivElement | null>(null);
+	const overlayRef = useRef<HTMLDivElement | null>(null);
+	const hiddenOverlayRef = useRef<HTMLDivElement | null>(null);
+	const teaserRef = useRef<HTMLDivElement | null>(null);
 
-   useEffect(() => {
-    if (!isActive) {
-      gsap.fromTo(
-        overlayRef.current,
-        {
-          y: "-100%",
-        },
-        {
-          y: "0%",
-          duration: 0.5,
-          ease: "power4.out",
-        }
-      );
+	useEffect(() => {
+		if (!isActive) {
+			gsap.fromTo(
+				overlayRef.current,
+				{
+					y: "-100%",
+				},
+				{
+					y: "0%",
+					duration: 0.5,
+					ease: "power4.out",
+				}
+			);
 
-      gsap.fromTo(
-        hiddenOverlayRef.current,
-        {
-          y: "-100%",
-        },
-        {
-          y: "0%",
-          duration: 0.5,
-          ease: "power4.out",
-        }
-      );
-    } else {
-      if (teaserRef.current) {
-        gsap.to(teaserRef.current, {
-          opacity: 0,
-          duration: 0.3,
-          ease: "power3.out",
-        });
-      }
-    }
-  }, [isActive]);
+			gsap.fromTo(
+				hiddenOverlayRef.current,
+				{
+					y: "-100%",
+				},
+				{
+					y: "0%",
+					duration: 0.5,
+					ease: "power4.out",
+				}
+			);
+		} else {
+			if (teaserRef.current) {
+				gsap.to(teaserRef.current, {
+					opacity: 0,
+					duration: 0.3,
+					ease: "power3.out",
+				});
+			}
+		}
+	}, [isActive]);
 
-  const onMouseEnter = (e: React.MouseEvent) => {
-    if (isActive) return;
-    const rect = boxRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const y = e.clientY - rect.top;
-    const fromTop = y < rect.height / 2;
+	const onMouseEnter = (e: React.MouseEvent) => {
+		if (isActive) return;
+		const rect = boxRef.current?.getBoundingClientRect();
+		if (!rect) return;
+		const y = e.clientY - rect.top;
+		const fromTop = y < rect.height / 2;
 
-    gsap.fromTo(
-      overlayRef.current,
-      {},
-      {
-        y: fromTop ? "100%" : "-100%",
-        duration: 0.5,
-        ease: "power4.out",
-      }
-    );
+		gsap.fromTo(
+			overlayRef.current,
+			{},
+			{
+				y: fromTop ? "100%" : "-100%",
+				duration: 0.5,
+				ease: "power4.out",
+			}
+		);
 
-    gsap.fromTo(
-      hiddenOverlayRef.current,
-      {
-        y: fromTop ? "-200%" : "0%",
-      },
-      {
-        y: "-100%",
-        duration: 0.5,
-        ease: "power4.out",
-      }
-    );
+		gsap.fromTo(
+			hiddenOverlayRef.current,
+			{
+				y: fromTop ? "-200%" : "0%",
+			},
+			{
+				y: "-100%",
+				duration: 0.5,
+				ease: "power4.out",
+			}
+		);
 
-    if (teaserRef.current && project.images.length > 0) {
-      const rowCenterY = rect.top + rect.height / 2;
+		if (teaserRef.current && teaserImageUrl) {
+			const rowCenterY = rect.top + rect.height / 2;
 
-      gsap.fromTo(
-        teaserRef.current,
-        {
-          opacity: 0,
-          y: fromTop ? -20 : 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power4.out",
-        }
-      );
+			gsap.fromTo(
+				teaserRef.current,
+				{
+					opacity: 0,
+					y: fromTop ? -20 : 20,
+				},
+				{
+					opacity: 1,
+					y: 0,
+					duration: 0.5,
+					ease: "power4.out",
+				}
+			);
 
-      gsap.set(teaserRef.current, {
-        top: rowCenterY,
-        transform: "translateY(-50%)",
-      });
-    }
-  };
+			gsap.set(teaserRef.current, {
+				top: rowCenterY,
+				transform: "translateY(-50%)",
+			});
+		}
+	};
 
-  const onMouseLeave = (e: React.MouseEvent) => {
-    if (isActive) return;
-    const rect = boxRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const y = e.clientY - rect.top;
-    const fromTop = y < rect.height / 2;
+	const onMouseLeave = (e: React.MouseEvent) => {
+		if (isActive) return;
+		const rect = boxRef.current?.getBoundingClientRect();
+		if (!rect) return;
+		const y = e.clientY - rect.top;
+		const fromTop = y < rect.height / 2;
 
-    gsap.fromTo(
-      overlayRef.current,
-      {
-        y: fromTop ? "100%" : "-100%",
-      },
-      {
-        y: "0%",
-        duration: 0.5,
-        ease: "power3.out",
-      }
-    );
+		gsap.fromTo(
+			overlayRef.current,
+			{
+				y: fromTop ? "100%" : "-100%",
+			},
+			{
+				y: "0%",
+				duration: 0.5,
+				ease: "power3.out",
+			}
+		);
 
-    gsap.fromTo(
-      hiddenOverlayRef.current,
-      {},
-      {
-        y: fromTop ? "-200%" : "0%",
-        duration: 0.5,
-        ease: "power3.out",
-      }
-    );
+		gsap.fromTo(
+			hiddenOverlayRef.current,
+			{},
+			{
+				y: fromTop ? "-200%" : "0%",
+				duration: 0.5,
+				ease: "power3.out",
+			}
+		);
 
-    if (teaserRef.current) {
-      gsap.fromTo(
-        teaserRef.current,
-        {
-          opacity: 1,
-          y: 0,
-        },
-        {
-          opacity: 0,
-          y: fromTop ? -20 : 20,
-          duration: 0.5,
-          ease: "power3.out",
-        }
-      );
-    }
-  };
+		if (teaserRef.current) {
+			gsap.fromTo(
+				teaserRef.current,
+				{
+					opacity: 1,
+					y: 0,
+				},
+				{
+					opacity: 0,
+					y: fromTop ? -20 : 20,
+					duration: 0.5,
+					ease: "power3.out",
+				}
+			);
+		}
+	};
 
-	const randomIndex = Math.floor(Math.random() * project.images.length);
-	const teaserImage = project.images[randomIndex]?.image;
+	return (
+		<>
+			{teaserImageUrl && (
+				<div
+					ref={teaserRef}
+					className="fixed pointer-events-none z-50"
+					style={{
+						right: "4rem",
+						opacity: 0,
+					}}>
+					<div className="relative w-64 h-96 overflow-hidden">
+						<Image
+							src={teaserImageUrl}
+							alt={`${project.title} teaser`}
+							width={100}
+							height={0}
+							className="object-cover"
+							sizes="(max-width: 768px) 200px, 256px"
+							style={{ width: "auto", height: "auto" }}
+							priority
+						/>
+					</div>
+				</div>
+			)}
 
-  return (
-    <>
-      {teaserImage?.url && (
-        <div
-          ref={teaserRef}
-          className="fixed pointer-events-none z-50"
-          style={{
-            right: "4rem",
-            opacity: 0,
-          }}>
-          <div className="relative w-64 h-96 overflow-hidden">
-            <Image
-              src={teaserImage.url}
-              alt={`${project.title} teaser`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 200px, 256px"
-            />
-          </div>
-        </div>
-      )}
-
-      <div
-        ref={boxRef}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        className="h-[6em] overflow-hidden relative z-10">
-        <div ref={overlayRef} className="w-full h-full px-5 flex items-center justify-between">
-          <h2 className="text-black font-800">{project.title}</h2>
-        </div>
-        <div
-          ref={hiddenOverlayRef}
-          className="w-full h-full px-5 flex items-center justify-between bg-black">
-          <h2 className="text-white">{project.title}</h2>
-        </div>
-      </div>
-    </>
-  );
+			<div
+				ref={boxRef}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				className="h-[7em] overflow-hidden relative z-10">
+				<div ref={overlayRef} className="w-full h-full px-5 flex items-center justify-between">
+					<h2 className="text-black font-800">{project.title}</h2>
+				</div>
+				<div
+					ref={hiddenOverlayRef}
+					className="w-full h-full px-5 flex items-center justify-between bg-black">
+					<h2 className="text-white">{project.title}</h2>
+				</div>
+			</div>
+		</>
+	);
 }
 
 function ProjectDetails({ project, show }: ProjectDetailsProps) {
@@ -255,7 +256,7 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 											alt={imageData.image.alt || `${project.title} image ${index + 1}`}
 											width={0}
 											height={0}
-											sizes="100vw"
+											sizes="50vw"
 											style={{ width: "auto", height: "100%" }}
 											loading={index === 0 ? "eager" : "lazy"}
 											priority={index === 0}
@@ -273,6 +274,7 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 
 export default function Photos() {
 	const [projects, setProjects] = useState<Project[]>([]);
+	const [teaserImages, setTeaserImages] = useState<Record<string, string>>({});
 	const [activeProject, setActiveProject] = useState<Project | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -312,6 +314,7 @@ export default function Photos() {
 				});
 
 				setProjects(formattedProjects);
+				preloadTeasers(formattedProjects);
 			} catch {
 				console.error("Failed to fetch gallery projects");
 				setError("Failed to load gallery projects. Please try again later.");
@@ -322,6 +325,30 @@ export default function Photos() {
 
 		fetchProjects();
 	}, []);
+
+	const preloadTeasers = (projectList: Project[]) => {
+		const teasers: Record<string, string> = {};
+
+		projectList.forEach((project) => {
+			if (project.images.length > 0) {
+				const randomIndex = Math.floor(Math.random() * project.images.length);
+				const imageUrl = project.images[randomIndex]?.image?.url;
+
+				if (imageUrl) {
+					const optimizedUrl = `${imageUrl}`;
+					teasers[project.uid] = optimizedUrl;
+
+					const link = document.createElement('link');
+					link.rel = 'preload';
+					link.as = 'image';
+					link.href = optimizedUrl;
+					document.head.appendChild(link);
+				}
+			}
+		});
+
+		setTeaserImages(teasers);
+	};
 
 	if (loading) {
 		return (
@@ -373,6 +400,7 @@ export default function Photos() {
 									<ProjectRow
 										project={project}
 										isActive={activeProject?.uid === project.uid}
+										teaserImageUrl={teaserImages[project.uid]}
 									/>
 									<ProjectDetails
 										project={project}

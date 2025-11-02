@@ -47,7 +47,6 @@ export default function Videos() {
 											}}
 											playbackId={video.id}
 											loop
-											muted
 											thumbnailTime={1}
 											primaryColor="#fff"
 											accentColor="#333"
