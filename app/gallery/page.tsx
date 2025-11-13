@@ -6,8 +6,8 @@ import NavBar from "@/app/components/NavBar";
 import { getAllGalleryProjects } from "@/lib/prismic";
 
 import gsap from "gsap";
-import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import React, { useRef, useEffect, useState } from "react";
 
 interface GalleryImage {
 	image?: {
@@ -204,7 +204,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 				ref={boxRef}
 				onMouseEnter={onMouseEnter}
 				onMouseLeave={onMouseLeave}
-				className="h-[7em] overflow-hidden relative z-10">
+				className="h-[7em] overflow-hidden relative z-10 cursor-pointer">
 				<div ref={overlayRef} className="w-full h-full px-5 flex items-center justify-between">
 					<h2 className="text-black font-800">{project.title}</h2>
 				</div>
@@ -242,7 +242,7 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 				{shouldRender && (
 					<>
 						{project.images.length > 0 && (
-							<div className="flex gap-5 relative h-[50em] overflow-hidden">
+							<div className="columns-2 md:columns-3 gap-4">
 								{project.images?.map((imageData, index) => {
 									if (!imageData.image?.url) {
 										console.warn(`Image ${index} missing URL for project ${project.title}`);
@@ -250,17 +250,18 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 									}
 
 									return (
-										<Image
-											key={index}
-											src={imageData.image.url}
-											alt={imageData.image.alt || `${project.title} image ${index + 1}`}
-											width={0}
-											height={0}
-											sizes="50vw"
-											style={{ width: "auto", height: "100%" }}
-											loading={index === 0 ? "eager" : "lazy"}
-											priority={index === 0}
-										/>
+										<div key={index} className="break-inside-avoid mb-4">
+											<Image
+												src={imageData.image.url}
+												alt={imageData.image.alt || `${project.title} image ${index + 1}`}
+												width={0}
+												height={0}
+												sizes="(max-width: 768px) 50vw, 33vw"
+												className="w-full h-auto"
+												loading={index === 0 ? "eager" : "lazy"}
+												priority={index === 0}
+											/>
+										</div>
 									);
 								})}
 							</div>
@@ -394,8 +395,7 @@ export default function Photos() {
 											activeProject?.uid === project.uid ? null : project
 										)
 									}
-									key={`project-${project.uid}`}
-									className="cursor-pointer">
+									key={`project-${project.uid}`}>
 									{index === 0 && <div className="h-[2px] bg-black" />}
 									<ProjectRow
 										project={project}
