@@ -52,13 +52,8 @@ export default function Videos() {
 											accentColor="#333"
 										/>
 									</div>
-									<div className="w-full flex flex-row justify-between items-start pr-2">
+									<div className="w-full flex flex-row">
 										<h2>{video.name}</h2>
-										<div className="flex flex-col">
-											{video.keywords.map((keyword, keywordIndex) => (
-												<span key={keywordIndex}>{keyword}</span>
-											))}
-										</div>
 									</div>
 								</div>
 							))}
