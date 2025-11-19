@@ -4,7 +4,7 @@ import { ViewTransitions } from "next-view-transitions";
 import { switzer } from "@/app/styles/fonts";
 
 export const metadata: Metadata = {
-	title: "Umberto Maria Pelizza",
+	title: "Pelizza Pictures",
 	description: "Portfolio",
 };
 
