@@ -13,14 +13,13 @@ export default function About() {
 				<div className="about-content">
 					<h1>ABOUT</h1>
 					<div className="about-content__text">
-						<p><b>PELIZZA PICTURES</b> est une agence créative indépendante au
-							style affirmé, spécialisée dans la création de contenus visuels
-							et audiovisuels sur mesure. De la conception à la livraison,
-							nous accompagnons chaque projet avec exigence et :
-							direction artistique, écriture, production, réalisation,
-							postproduction. Marque, artiste, média, organisateur
-							d’événement, nous donnons vie à des contenus authentiques
-							en harmonie avec votre vision.</p>
+						<p><b>PELIZZA PICTURES</b> est une agence créative indépendante au style affirmé, 
+							spécialisée dans la création de contenus visuels et audiovisuels sur mesure. 
+							Agence à taille humaine, nous accompagnons chaque projet de la conception à 
+							la livraison avec exigence et sens du détail, en prenant en charge l’ensemble
+							du processus créatif : direction artistique, écriture, production, réalisation 
+							et postproduction. Marques, artistes, médias ou organisateurs d’événements,
+							nous donnons vie à des contenus authentiques, efficaces et fidèles à votre vision.</p>
 						<p><b>PELIZZA PICTURES</b> is a bold, independent creative agency
 							specializing in the design and production of custom visual
 							and audiovisual content. From concept to delivery, we guide
