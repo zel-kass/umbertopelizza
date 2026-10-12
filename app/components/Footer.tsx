@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import AnimatedLink from "@/app/components/AnimatedLink";
 
@@ -26,5 +26,5 @@ export default function Footer() {
 				<h3>ALL RIGHTS RESERVED</h3>
 			</div>
 		</footer>
-	)
+	);
 }

@@ -78,7 +78,6 @@
 
 /* Only on touch devices */
 @media (hover: none) and (pointer: coarse) {
-
 	/* Set vh to dvh initially */
 	:root {
 		--vh: 1vh;
@@ -113,7 +112,7 @@ html {
 	--gap-s: 1em;
 	--gap-xs: 0.75em;
 	--border-radius: 0.2em;
-	--border-radius-s: .5em;
+	--border-radius-s: 0.5em;
 	--border-radius-m: 1em;
 	--border-radius-l: 1.5em;
 }
@@ -124,7 +123,6 @@ body {
 	line-height: 1.5;
 	font-family: var(--font-switzer), system-ui, sans-serif;
 }
-
 
 h1 {
 	font-size: 9em;
@@ -175,7 +173,7 @@ p {
 	}
 
 	p {
-		font-size: .8em;
+		font-size: 0.8em;
 		font-style: normal;
 		font-weight: 300;
 	}
@@ -283,7 +281,6 @@ p {
 	animation: none !important;
 }
 
-
 @layer base {
 	* {
 		@apply border-border;
@@ -316,47 +313,47 @@ p {
 
 @keyframes noise-d4232bc3 {
 	0% {
-		transform: translate3d(1%, -1%, 0)
+		transform: translate3d(1%, -1%, 0);
 	}
 
 	10% {
-		transform: translate3d(-5%, -2%, 0)
+		transform: translate3d(-5%, -2%, 0);
 	}
 
 	20% {
-		transform: translate3d(10%, 5%, 0)
+		transform: translate3d(10%, 5%, 0);
 	}
 
 	30% {
-		transform: translate3d(5%, -11%, 0)
+		transform: translate3d(5%, -11%, 0);
 	}
 
 	40% {
-		transform: translate3d(-12%, -5%, 0)
+		transform: translate3d(-12%, -5%, 0);
 	}
 
 	50% {
-		transform: translate3d(10%, 9%, 0)
+		transform: translate3d(10%, 9%, 0);
 	}
 
 	60% {
-		transform: translate3d(15%, 0, 0)
+		transform: translate3d(15%, 0, 0);
 	}
 
 	70% {
-		transform: translate3d(-10%, 8%, 0)
+		transform: translate3d(-10%, 8%, 0);
 	}
 
 	80% {
-		transform: translate3d(10%, 2%, 0)
+		transform: translate3d(10%, 2%, 0);
 	}
 
 	90% {
-		transform: translate3d(-1%, 5%, 0)
+		transform: translate3d(-1%, 5%, 0);
 	}
 
 	to {
-		transform: translate3d(0, 8%, 0)
+		transform: translate3d(0, 8%, 0);
 	}
 }
 

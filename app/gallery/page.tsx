@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import ReactLenis from "lenis/react";
 import Footer from "@/app/components/Footer";
@@ -51,7 +51,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 					y: "0%",
 					duration: 0.5,
 					ease: "power4.out",
-				}
+				},
 			);
 
 			gsap.fromTo(
@@ -63,7 +63,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 					y: "0%",
 					duration: 0.5,
 					ease: "power4.out",
-				}
+				},
 			);
 		} else {
 			if (teaserRef.current) {
@@ -90,7 +90,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 				y: fromTop ? "100%" : "-100%",
 				duration: 0.5,
 				ease: "power4.out",
-			}
+			},
 		);
 
 		gsap.fromTo(
@@ -102,7 +102,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 				y: "-100%",
 				duration: 0.5,
 				ease: "power4.out",
-			}
+			},
 		);
 
 		if (teaserRef.current && teaserImageUrl) {
@@ -119,7 +119,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 					y: 0,
 					duration: 0.5,
 					ease: "power4.out",
-				}
+				},
 			);
 
 			gsap.set(teaserRef.current, {
@@ -145,7 +145,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 				y: "0%",
 				duration: 0.5,
 				ease: "power3.out",
-			}
+			},
 		);
 
 		gsap.fromTo(
@@ -155,7 +155,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 				y: fromTop ? "-200%" : "0%",
 				duration: 0.5,
 				ease: "power3.out",
-			}
+			},
 		);
 
 		if (teaserRef.current) {
@@ -170,7 +170,7 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 					y: fromTop ? -20 : 20,
 					duration: 0.5,
 					ease: "power3.out",
-				}
+				},
 			);
 		}
 	};
@@ -184,7 +184,8 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 					style={{
 						right: "4rem",
 						opacity: 0,
-					}}>
+					}}
+				>
 					<div className="relative w-64 h-96 overflow-hidden">
 						<Image
 							src={teaserImageUrl}
@@ -204,13 +205,15 @@ function ProjectRow({ project, isActive, teaserImageUrl }: ProjectRowProps) {
 				ref={boxRef}
 				onMouseEnter={onMouseEnter}
 				onMouseLeave={onMouseLeave}
-				className="h-[7em] overflow-hidden relative z-10 cursor-pointer">
+				className="h-[7em] overflow-hidden relative z-10 cursor-pointer"
+			>
 				<div ref={overlayRef} className="w-full h-full px-5 flex items-center justify-between">
 					<h2 className="text-black font-800">{project.title}</h2>
 				</div>
 				<div
 					ref={hiddenOverlayRef}
-					className="w-full h-full px-5 flex items-center justify-between bg-black">
+					className="w-full h-full px-5 flex items-center justify-between bg-black"
+				>
 					<h2 className="text-white">{project.title}</h2>
 				</div>
 			</div>
@@ -237,7 +240,8 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 		<div
 			ref={boxRef}
 			className={`grid transition-all duration-500 overflow-hidden px-5 backdrop-blur-lg 
-        ${show ? "grid-rows-[1fr] py-5" : "grid-rows-[0fr]"}`}>
+        ${show ? "grid-rows-[1fr] py-5" : "grid-rows-[0fr]"}`}
+		>
 			<div className="overflow-hidden">
 				{shouldRender && (
 					<>
@@ -384,21 +388,17 @@ export default function Photos() {
 							{projects.map((project, index) => (
 								<div
 									onClick={() =>
-										setActiveProject(
-											activeProject?.uid === project.uid ? null : project
-										)
+										setActiveProject(activeProject?.uid === project.uid ? null : project)
 									}
-									key={`project-${project.uid}`}>
+									key={`project-${project.uid}`}
+								>
 									{index === 0 && <div className="h-[2px] bg-black" />}
 									<ProjectRow
 										project={project}
 										isActive={activeProject?.uid === project.uid}
 										teaserImageUrl={teaserImages[project.uid]}
 									/>
-									<ProjectDetails
-										project={project}
-										show={activeProject?.uid === project.uid}
-									/>
+									<ProjectDetails project={project} show={activeProject?.uid === project.uid} />
 									<div className="h-[2px] bg-black" />
 								</div>
 							))}

@@ -16,9 +16,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" data-scroll-behavior="smooth" className={switzer.className}>
 			<body className="antialiased">
-				<ViewTransitions>
-					{children}
-				</ViewTransitions>
+				<ViewTransitions>{children}</ViewTransitions>
 			</body>
 		</html>
 	);

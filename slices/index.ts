@@ -3,5 +3,5 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  single_photo: dynamic(() => import("./SinglePhoto")),
+	single_photo: dynamic(() => import("./SinglePhoto")),
 };
