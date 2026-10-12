@@ -336,14 +336,7 @@ export default function Photos() {
 				const imageUrl = project.images[randomIndex]?.image?.url;
 
 				if (imageUrl) {
-					const optimizedUrl = `${imageUrl}`;
-					teasers[project.uid] = optimizedUrl;
-
-					const link = document.createElement('link');
-					link.rel = 'preload';
-					link.as = 'image';
-					link.href = optimizedUrl;
-					document.head.appendChild(link);
+					teasers[project.uid] = imageUrl;
 				}
 			}
 		});
