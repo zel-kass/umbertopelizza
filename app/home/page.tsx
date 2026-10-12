@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import MuxPlayer from "@mux/mux-player-react"
+import MuxPlayer from "@mux/mux-player-react";
 
-import ReactLenis from "lenis/react"
-import NavBar from "@/app/components/NavBar"
+import ReactLenis from "lenis/react";
+import NavBar from "@/app/components/NavBar";
 
 export default function Home() {
 	return (
@@ -20,13 +20,13 @@ export default function Home() {
 						accentColor="#333"
 						thumbnailTime={0}
 						style={{
-							height: '100%',
-							width: '100%',
-							pointerEvents: 'none',
+							height: "100%",
+							width: "100%",
+							pointerEvents: "none",
 						}}
 					/>
 				</div>
 			</main>
 		</ReactLenis>
-	)
+	);
 }

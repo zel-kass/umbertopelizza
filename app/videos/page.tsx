@@ -1,28 +1,27 @@
-'use client'
+"use client";
 
-import { useRef } from "react"
-import MuxPlayer from '@mux/mux-player-react'
-import ReactLenis from "lenis/react"
+import { useRef } from "react";
+import MuxPlayer from "@mux/mux-player-react";
+import ReactLenis from "lenis/react";
 
-import NavBar from "@/app/components/NavBar"
-import videos from "@/lib/data/videos.json"
-import Footer from "@/app/components/Footer"
+import NavBar from "@/app/components/NavBar";
+import videos from "@/lib/data/videos.json";
+import Footer from "@/app/components/Footer";
 
 export default function Videos() {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const playerRefs = useRef<any[]>([])
-	const isFullscreenRef = useRef<boolean[]>([])
+	const playerRefs = useRef<any[]>([]);
+	const isFullscreenRef = useRef<boolean[]>([]);
 
 	const handleMouseEnter = (index: number) => {
-		playerRefs.current[index]?.play?.()
-	}
+		playerRefs.current[index]?.play?.();
+	};
 
 	const handleMouseLeave = (index: number) => {
 		if (!isFullscreenRef.current[index]) {
-			playerRefs.current[index]?.pause?.()
-
+			playerRefs.current[index]?.pause?.();
 		}
-	}
+	};
 
 	return (
 		<ReactLenis root>
@@ -43,7 +42,7 @@ export default function Videos() {
 									>
 										<MuxPlayer
 											ref={(el) => {
-												playerRefs.current[index] = el
+												playerRefs.current[index] = el;
 											}}
 											playbackId={video.id}
 											loop
@@ -63,5 +62,5 @@ export default function Videos() {
 				</div>
 			</div>
 		</ReactLenis>
-	)
+	);
 }
