@@ -1,12 +1,7 @@
 import { createClient } from "@prismicio/client";
+import sm from "@/slicemachine.config.json";
 
-const repositoryName = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
-
-if (!repositoryName) {
-	throw new Error("NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME is not defined");
-}
-
-export const client = createClient(repositoryName);
+export const client = createClient(sm.repositoryName);
 
 export async function getAllGalleryProjects() {
 	try {
