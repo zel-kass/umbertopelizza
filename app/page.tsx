@@ -8,7 +8,7 @@ export default function Home() {
 
 	return (
 		<main className="min-h-screen flex flex-col">
-			<a onClick={(e) => {
+			<a href="/home" onClick={(e) => {
 				e.preventDefault();
 				router.push('/home', {
 					onTransitionReady: slideInOut,
