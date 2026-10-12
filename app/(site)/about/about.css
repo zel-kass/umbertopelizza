@@ -1,8 +1,7 @@
 .about-wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	min-height: calc(var(--vh) * 100);
+	flex: 1;
 	padding-top: 10em;
 	padding-inline: 2em;
 	position: relative;

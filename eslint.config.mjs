@@ -13,7 +13,7 @@ export default defineConfig([
 	// shortcut: known violations in files rewritten by the refactor (gallery → server component,
 	// ScrambleHover simplified). Delete this block once those land.
 	{
-		files: ["app/gallery/page.tsx", "app/components/ScrambleHover.tsx"],
+		files: ["app/(site)/gallery/page.tsx", "app/components/ScrambleHover.tsx"],
 		rules: {
 			"react-hooks/set-state-in-effect": "warn",
 			"react-hooks/immutability": "warn",

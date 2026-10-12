@@ -1,27 +1,24 @@
-"use client";
-
-import slideInOut from "@/lib/utils";
-import { useTransitionRouter } from "next-view-transitions";
+import MuxPlayer from "@mux/mux-player-react";
 
 export default function Home() {
-	const router = useTransitionRouter();
-
 	return (
-		<main className="min-h-screen flex flex-col">
-			<a
-				href="/home"
-				onClick={(e) => {
-					e.preventDefault();
-					router.push("/home", {
-						onTransitionReady: slideInOut,
-					});
-				}}
-				className="absolute top-0 left-0 flex-col gap-y-8 h-full w-full bg-white z-[100] flex justify-center items-center cursor-pointer overflow-hidden"
-				id="pre-screen"
-			>
-				<h1>PELIZZA</h1>
-				<h3>CLICK TO ENTER</h3>
-			</a>
+		<main className="flex flex-col h-screen w-screen">
+			<div className="h-full w-full relative z-0 overflow-hidden">
+				<MuxPlayer
+					playbackId={"pXenY200X6FHzLmpAgMyTpN3zB2dHlnHJ02J5X028TptPM"}
+					loop
+					muted
+					autoPlay
+					primaryColor="#fff"
+					accentColor="#333"
+					thumbnailTime={0}
+					style={{
+						height: "100%",
+						width: "100%",
+						pointerEvents: "none",
+					}}
+				/>
+			</div>
 		</main>
 	);
 }
