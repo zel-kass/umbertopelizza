@@ -26,7 +26,7 @@ export default function NavBar() {
 			<BurgerMenu />
 			<div className="hidden md:flex w-full py-2 flex-col sm:flex-row justify-between items-center">
 				<div className="relative">
-					<AnimatedLink link="/home" text="PELIZZA" fontSize="3rem" />
+					<AnimatedLink link="/" text="PELIZZA" fontSize="3rem" />
 					<h4 className="absolute top-2/3 right-0 pointer-events-none">PICTURES</h4>
 				</div>
 				<div className="flex flex-row gap-8 items-start">

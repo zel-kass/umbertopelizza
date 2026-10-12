@@ -1,8 +1,5 @@
 "use client";
 
-import ReactLenis from "lenis/react";
-import Footer from "@/app/components/Footer";
-import NavBar from "@/app/components/NavBar";
 import { getAllGalleryProjects } from "@/lib/prismic";
 
 import gsap from "gsap";
@@ -350,65 +347,51 @@ export default function Photos() {
 
 	if (loading) {
 		return (
-			<ReactLenis root>
-				<div className="h-screen flex items-center justify-center">
-					<p>Loading gallery...</p>
-				</div>
-			</ReactLenis>
+			<main className="flex flex-1 items-center justify-center">
+				<p>Loading gallery...</p>
+			</main>
 		);
 	}
 
 	if (error) {
 		return (
-			<ReactLenis root>
-				<div className="h-screen flex items-center justify-center">
-					<div className="text-center">
-						<p className="text-red-600 mb-2">{error}</p>
-						<p className="text-sm text-gray-500">
-							Make sure you&apos;ve published your Gallery Project documents in Prismic.
-						</p>
-					</div>
+			<main className="flex flex-1 items-center justify-center">
+				<div className="text-center">
+					<p className="text-red-600 mb-2">{error}</p>
+					<p className="text-sm text-gray-500">
+						Make sure you&apos;ve published your Gallery Project documents in Prismic.
+					</p>
 				</div>
-			</ReactLenis>
+			</main>
 		);
 	}
 
 	return (
-		<ReactLenis root>
-			<div className="max-w-screen relative">
-				<NavBar />
-				<div>
-					<div className="flex flex-col space-y-10 h-content p-4">
-						<div className="h-[25em] w-full flex items-end relative">
-							<h1>GALLERY</h1>
-						</div>
-					</div>
-					<div className="min-h-[50vh] w-full mb-16">
-						<div className="grid grid-row-auto">
-							{projects.map((project, index) => (
-								<div
-									onClick={() =>
-										setActiveProject(activeProject?.uid === project.uid ? null : project)
-									}
-									key={`project-${project.uid}`}
-								>
-									{index === 0 && <div className="h-[2px] bg-black" />}
-									<ProjectRow
-										project={project}
-										isActive={activeProject?.uid === project.uid}
-										teaserImageUrl={teaserImages[project.uid]}
-									/>
-									<ProjectDetails project={project} show={activeProject?.uid === project.uid} />
-									<div className="h-[2px] bg-black" />
-								</div>
-							))}
-						</div>
-					</div>
-					<div className="p-4">
-						<Footer />
-					</div>
+		<main>
+			<div className="flex flex-col space-y-10 h-content p-4">
+				<div className="h-[25em] w-full flex items-end relative">
+					<h1>GALLERY</h1>
 				</div>
 			</div>
-		</ReactLenis>
+			<div className="min-h-[50vh] w-full mb-16">
+				<div className="grid grid-row-auto">
+					{projects.map((project, index) => (
+						<div
+							onClick={() => setActiveProject(activeProject?.uid === project.uid ? null : project)}
+							key={`project-${project.uid}`}
+						>
+							{index === 0 && <div className="h-[2px] bg-black" />}
+							<ProjectRow
+								project={project}
+								isActive={activeProject?.uid === project.uid}
+								teaserImageUrl={teaserImages[project.uid]}
+							/>
+							<ProjectDetails project={project} show={activeProject?.uid === project.uid} />
+							<div className="h-[2px] bg-black" />
+						</div>
+					))}
+				</div>
+			</div>
+		</main>
 	);
 }
