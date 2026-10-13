@@ -222,15 +222,16 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 	const [shouldRender, setShouldRender] = useState(false);
 	const boxRef = useRef<HTMLDivElement | null>(null);
 
+	if (show && !shouldRender) {
+		setShouldRender(true);
+	}
+
 	useEffect(() => {
-		if (show) {
-			setShouldRender(true);
-		} else {
-			const timeout = setTimeout(() => {
-				setShouldRender(false);
-			}, 300);
-			return () => clearTimeout(timeout);
-		}
+		if (show) return;
+		const timeout = setTimeout(() => {
+			setShouldRender(false);
+		}, 300);
+		return () => clearTimeout(timeout);
 	}, [show]);
 
 	return (

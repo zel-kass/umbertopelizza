@@ -11,14 +11,15 @@ export default function BurgerMenu() {
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
 	};
+	const closeMenu = () => setIsOpen(false);
 
 	return (
 		<div className="flex md:hidden w-full justify-between items-center p-4">
 			<div className="z-10">
-				<AnimatedLink link="/" text="PELIZZA" />
+				<AnimatedLink link="/" text="PELIZZA" onClick={closeMenu} />
 			</div>
 			<BurgerButton isOpen={isOpen} toggle={toggleMenu} />
-			<Menu isOpen={isOpen} />
+			<Menu isOpen={isOpen} onLinkClick={closeMenu} />
 		</div>
 	);
 }

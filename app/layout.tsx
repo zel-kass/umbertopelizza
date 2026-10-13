@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ViewTransitions } from "next-view-transitions";
+import { ViewTransition } from "react";
 import { switzer } from "@/app/styles/fonts";
 import NavBar from "@/app/components/NavBar";
 import { ReactLenis } from "lenis/react";
-
 export const metadata: Metadata = {
 	title: "Pelizza Pictures",
 	description: "Portfolio",
@@ -18,12 +17,10 @@ export default function RootLayout({
 	return (
 		<html lang="en" data-scroll-behavior="smooth" className={switzer.className}>
 			<body className="antialiased">
-				<ViewTransitions>
-					<ReactLenis root>
-						<NavBar />
-						{children}
-					</ReactLenis>
-				</ViewTransitions>
+				<ReactLenis root>
+					<NavBar />
+					<ViewTransition>{children}</ViewTransition>
+				</ReactLenis>
 			</body>
 		</html>
 	);

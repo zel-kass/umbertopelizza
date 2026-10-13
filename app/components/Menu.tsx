@@ -13,9 +13,10 @@ const navItems = [
 
 interface MenuProps {
 	isOpen: boolean;
+	onLinkClick: () => void;
 }
 
-export default function Menu({ isOpen }: MenuProps) {
+export default function Menu({ isOpen, onLinkClick }: MenuProps) {
 	const menuRef = useRef<HTMLDivElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -99,7 +100,7 @@ export default function Menu({ isOpen }: MenuProps) {
 		>
 			<div className="flex flex-col items-center justify-center h-full gap-8" ref={contentRef}>
 				{navItems.map((item, index) => (
-					<AnimatedLink link={item.href} text={item.label} key={index} />
+					<AnimatedLink link={item.href} text={item.label} key={index} onClick={onLinkClick} />
 				))}
 			</div>
 		</div>
