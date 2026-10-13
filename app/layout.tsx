@@ -19,9 +19,7 @@ export default function RootLayout({
 			<body className="antialiased">
 				<ReactLenis root>
 					<NavBar />
-					<ViewTransition>
-						{children}
-					</ViewTransition>
+					<ViewTransition>{children}</ViewTransition>
 				</ReactLenis>
 			</body>
 		</html>

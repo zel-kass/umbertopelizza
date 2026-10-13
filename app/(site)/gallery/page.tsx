@@ -223,8 +223,8 @@ function ProjectDetails({ project, show }: ProjectDetailsProps) {
 	const boxRef = useRef<HTMLDivElement | null>(null);
 
 	if (show && !shouldRender) {
-    setShouldRender(true);
-  }
+		setShouldRender(true);
+	}
 
 	useEffect(() => {
 		if (show) return;
