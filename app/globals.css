@@ -199,6 +199,20 @@ p {
 	gap: var(--gap-xs);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+	.video-dialog[open],
+	.video-dialog[open]::backdrop {
+		transition: opacity 300ms ease-out;
+	}
+
+	@starting-style {
+		.video-dialog[open],
+		.video-dialog[open]::backdrop {
+			opacity: 0;
+		}
+	}
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
