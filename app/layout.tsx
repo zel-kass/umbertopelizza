@@ -19,7 +19,9 @@ export default function RootLayout({
 			<body className="antialiased">
 				<ReactLenis root>
 					<NavBar />
-					<ViewTransition>{children}</ViewTransition>
+					<ViewTransition default="none" update={{ page: "auto", default: "none" }}>
+						{children}
+					</ViewTransition>
 				</ReactLenis>
 			</body>
 		</html>

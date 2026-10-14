@@ -1,25 +1,7 @@
-"use client";
-
-import { useRef } from "react";
-import MuxPlayer from "@mux/mux-player-react";
-
+import VideoCard from "./VideoCard";
 import videos from "@/lib/data/videos.json";
 
 export default function Videos() {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const playerRefs = useRef<any[]>([]);
-	const isFullscreenRef = useRef<boolean[]>([]);
-
-	const handleMouseEnter = (index: number) => {
-		playerRefs.current[index]?.play?.();
-	};
-
-	const handleMouseLeave = (index: number) => {
-		if (!isFullscreenRef.current[index]) {
-			playerRefs.current[index]?.pause?.();
-		}
-	};
-
 	return (
 		<main className="p-4">
 			<div className="h-[25em] w-full flex items-end relative">
@@ -27,24 +9,9 @@ export default function Videos() {
 			</div>
 			<div className="h-content">
 				<div className="grid lg:grid-cols-2 grid-rows-auto mb-16">
-					{videos.map((video, index) => (
-						<div className="relative lg:p-4 flex flex-col items-center" key={index}>
-							<div
-								className="w-full relative aspect-video mb-4 overflow-hidden cursor-pointer"
-								onMouseEnter={() => handleMouseEnter(index)}
-								onMouseLeave={() => handleMouseLeave(index)}
-							>
-								<MuxPlayer
-									ref={(el) => {
-										playerRefs.current[index] = el;
-									}}
-									playbackId={video.id}
-									loop
-									thumbnailTime={1}
-									primaryColor="#fff"
-									accentColor="#333"
-								/>
-							</div>
+					{videos.map((video) => (
+						<div className="relative lg:p-4 flex flex-col items-center" key={video.id}>
+							<VideoCard playbackId={video.id} title={video.name} />
 							<div className="w-full flex flex-row">
 								<h2>{video.name}</h2>
 							</div>
