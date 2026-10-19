@@ -3,21 +3,26 @@
 import dynamic from "next/dynamic";
 import { useLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
-import { muxPoster } from "@/lib/mux";
 
 export const loadPlayer = () => import("@mux/mux-player-react");
 const MuxPlayer = dynamic(loadPlayer, { ssr: false });
 
+export interface VideoSource {
+	poster?: string;
+	startTime: number;
+}
+
 interface VideoDialogProps {
 	playbackId: string;
 	title: string;
-	open: boolean;
+	source: VideoSource | undefined;
 	onClose: () => void;
 }
 
-export default function VideoDialog({ playbackId, title, open, onClose }: VideoDialogProps) {
+export default function VideoDialog({ playbackId, title, source, onClose }: VideoDialogProps) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const lenis = useLenis();
+	const open = source !== undefined;
 
 	useEffect(() => {
 		const dialog = dialogRef.current;
@@ -42,7 +47,7 @@ export default function VideoDialog({ playbackId, title, open, onClose }: VideoD
 			aria-label={title}
 			className="video-dialog m-auto w-[min(92vw,150vh)] overflow-visible p-0 backdrop:bg-black/90"
 		>
-			{open && (
+			{source && (
 				<>
 					<button
 						type="button"
@@ -53,13 +58,16 @@ export default function VideoDialog({ playbackId, title, open, onClose }: VideoD
 					</button>
 					<div
 						className="relative aspect-video w-full bg-black bg-cover bg-center"
-						style={{ backgroundImage: `url(${muxPoster(playbackId, { time: 1, width: 1280 })})` }}
+						style={source.poster ? { backgroundImage: `url(${source.poster})` } : undefined}
 					>
 						<MuxPlayer
 							playbackId={playbackId}
 							title={title}
-							autoPlay
-							thumbnailTime={1}
+							poster={source.poster}
+							startTime={source.startTime}
+							autoPlay="any"
+							noMutedPref
+							capRenditionToPlayerSize
 							primaryColor="#fff"
 							accentColor="#333"
 							className="absolute inset-0 h-full w-full"
