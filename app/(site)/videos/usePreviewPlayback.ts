@@ -1,12 +1,15 @@
 import { useEffect, useRef } from "react";
 
-// Desktop: the preview plays while hovered. Touch screens have no hover, so it plays while the
-// card is mostly on screen instead (unless the visitor asked for reduced motion).
 export function usePreviewPlayback() {
 	const videoRef = useRef<HTMLVideoElement>(null);
 
 	const play = () => videoRef.current?.play().catch(() => {});
-	const pause = () => videoRef.current?.pause();
+	const stop = () => {
+		const video = videoRef.current;
+		if (!video) return;
+		video.pause();
+		video.currentTime = 0;
+	};
 
 	useEffect(() => {
 		const video = videoRef.current;
@@ -15,12 +18,12 @@ export function usePreviewPlayback() {
 		if (!video || canHover || reducedMotion) return;
 
 		const observer = new IntersectionObserver(
-			([entry]) => (entry.isIntersecting ? video.play().catch(() => {}) : video.pause()),
-			{ threshold: 0.6 },
+			([entry]) => (entry.isIntersecting ? video.play().catch(() => {}) : stop()),
+			{ rootMargin: "-40% 0px -40% 0px" },
 		);
 		observer.observe(video);
 		return () => observer.disconnect();
 	}, []);
 
-	return { videoRef, play, pause };
+	return { videoRef, play, stop };
 }

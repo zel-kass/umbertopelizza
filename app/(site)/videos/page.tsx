@@ -1,7 +1,11 @@
+import { preconnect } from "react-dom";
 import VideoCard from "./VideoCard";
 import videos from "@/lib/data/videos.json";
 
 export default function Videos() {
+	preconnect("https://stream.mux.com", { crossOrigin: "anonymous" });
+	preconnect("https://image.mux.com");
+
 	return (
 		<main className="p-4">
 			<div className="h-[25em] w-full flex items-end relative">
