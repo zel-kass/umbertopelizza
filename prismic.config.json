@@ -1,0 +1,7 @@
+{
+  "repositoryName": "pelizza",
+  "libraries": [
+    "./slices"
+  ],
+  "routes": []
+}

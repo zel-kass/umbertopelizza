@@ -1,5 +1,8 @@
 pnpm-lock.yaml
 prismicio-types.d.ts
 slices/*/mocks.json
+slices/*/model.json
+slices/index.ts
+prismic.config.json
 customtypes/
 .claude/
