@@ -4,6 +4,8 @@ import { ViewTransition } from "react";
 import { switzer } from "@/app/styles/fonts";
 import NavBar from "@/app/components/NavBar";
 import { ReactLenis } from "lenis/react";
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "@/prismicio";
 export const metadata: Metadata = {
 	title: "Pelizza Pictures",
 	description: "Portfolio",
@@ -24,6 +26,7 @@ export default function RootLayout({
 					</ViewTransition>
 				</ReactLenis>
 			</body>
+			<PrismicPreview repositoryName={repositoryName} />
 		</html>
 	);
 }

@@ -1,0 +1,31 @@
+{
+  "format": "custom",
+  "id": "video",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "placeholder": "Titre de la vidéo"
+        },
+        "type": "Text"
+      },
+      "playback_id": {
+        "config": {
+          "label": "Mux playback ID",
+          "placeholder": "À copier depuis la page de la vidéo dans Mux"
+        },
+        "type": "Text"
+      }
+    }
+  },
+  "label": "Video",
+  "repeatable": true,
+  "status": true
+}
