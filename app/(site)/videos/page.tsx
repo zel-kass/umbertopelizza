@@ -1,8 +1,9 @@
 import { preconnect } from "react-dom";
 import VideoCard from "./VideoCard";
-import videos from "@/lib/data/videos.json";
+import { getVideos } from "@/lib/videos";
 
-export default function Videos() {
+export default async function Videos() {
+	const videos = await getVideos();
 	preconnect("https://stream.mux.com", { crossOrigin: "anonymous" });
 	preconnect("https://image.mux.com");
 
@@ -14,10 +15,10 @@ export default function Videos() {
 			<div className="h-content">
 				<div className="grid lg:grid-cols-2 grid-rows-auto mb-16">
 					{videos.map((video) => (
-						<div className="relative lg:p-4 flex flex-col items-center" key={video.id}>
-							<VideoCard playbackId={video.id} title={video.name} />
+						<div className="relative lg:p-4 flex flex-col items-center" key={video.uid}>
+							<VideoCard playbackId={video.playbackId} title={video.title} />
 							<div className="w-full flex flex-row">
-								<h2>{video.name}</h2>
+								<h2>{video.title}</h2>
 							</div>
 						</div>
 					))}

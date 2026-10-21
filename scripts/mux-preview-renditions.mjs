@@ -1,6 +1,7 @@
-// Adds a 480p static MP4 rendition (used for hover previews) to every video in lib/data/videos.json.
+// Adds a 480p static MP4 rendition (used for hover previews) to every published Prismic video.
 // Usage: MUX_TOKEN_ID=... MUX_TOKEN_SECRET=... node scripts/mux-preview-renditions.mjs [--status]
-import { readFile } from "node:fs/promises";
+import { createClient } from "@prismicio/client";
+import config from "../prismic.config.json" with { type: "json" };
 
 const RESOLUTION = "480p";
 const { MUX_TOKEN_ID, MUX_TOKEN_SECRET } = process.env;
@@ -21,7 +22,9 @@ async function mux(path, init = {}) {
 	return body.data;
 }
 
-const videos = JSON.parse(await readFile(new URL("../lib/data/videos.json", import.meta.url)));
+const videos = (await createClient(config.repositoryName).getAllByType("video"))
+	.filter((document) => document.data.playback_id)
+	.map((document) => ({ id: document.data.playback_id.trim(), name: document.data.title }));
 const statusOnly = process.argv.includes("--status");
 
 for (const { id: playbackId, name } of videos) {
