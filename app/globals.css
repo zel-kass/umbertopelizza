@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Match the fluid sizing breakpoints below */
+@theme {
+	--breakpoint-sm: 480px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+}
+
 /* Desktop */
 :root {
 	--size-unit: 16;
@@ -41,59 +48,6 @@
 	}
 }
 
-/* ------------------------- Viewportheight ------------------------------ */
-
-:root {
-	--vh-in-px: 8px;
-	/* Default fallback */
-	--vh: var(--vh-in-px);
-	--dvh: var(--vh);
-	/* Same as original VH */
-	--svh: var(--vh);
-	--lvh: var(--vh);
-}
-
-/* Only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-	:root {
-		--vh: 1vh;
-	}
-
-	/* If the device supports svh and lvh */
-	@supports (height: 1svh) {
-		:root {
-			--vh: 1vh;
-			/* Viewport height */
-			--dvh: 1dvh;
-			/* Dynamic viewport height */
-			--svh: 1svh;
-			/* Small viewport height */
-			--lvh: 1lvh;
-			/* Large viewport height */
-		}
-	}
-}
-
-/* Only on touch devices */
-@media (hover: none) and (pointer: coarse) {
-	/* Set vh to dvh initially */
-	:root {
-		--vh: 1vh;
-	}
-
-	/* If the device supports lvh */
-	@supports (height: 1lvh) {
-		:root {
-			--dvh: 1dvh;
-			/* Dynamic viewport height */
-			--svh: 1svh;
-			/* Small viewport height */
-			--lvh: 1lvh;
-			/* Large viewport height */
-		}
-	}
-}
-
 /* Apply the scaling system */
 @layer base {
 	html {
@@ -101,24 +55,8 @@
 		box-sizing: border-box;
 	}
 
-	/* Responsive Layout Variables - Scale with viewport */
-	:root {
-		--container-padding: 3em;
-		--section-padding: 12em;
-		--gap-xl: 4.5em;
-		--gap-l: 3em;
-		--gap: 1.5em;
-		--gap-s: 1em;
-		--gap-xs: 0.75em;
-		--border-radius: 0.2em;
-		--border-radius-s: 0.5em;
-		--border-radius-m: 1em;
-		--border-radius-l: 1.5em;
-	}
-
 	body {
 		background: white;
-		color: var(--color-foreground);
 		line-height: 1.5;
 		font-family: var(--font-switzer), system-ui, sans-serif;
 	}
@@ -176,106 +114,6 @@
 			font-style: normal;
 			font-weight: 300;
 		}
-	}
-}
-
-.gap-fluid-xl {
-	gap: var(--gap-xl);
-}
-
-.gap-fluid-l {
-	gap: var(--gap-l);
-}
-
-.gap-fluid-m {
-	gap: var(--gap);
-}
-
-.gap-fluid-s {
-	gap: var(--gap-s);
-}
-
-.gap-fluid-xs {
-	gap: var(--gap-xs);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.video-dialog[open],
-	.video-dialog[open]::backdrop {
-		transition: opacity 300ms ease-out;
-	}
-
-	@starting-style {
-		.video-dialog[open],
-		.video-dialog[open]::backdrop {
-			opacity: 0;
-		}
-	}
-}
-
-.scroll-section-inner {
-	height: fit-content;
-	width: auto;
-	display: flex;
-	flex-direction: column;
-}
-
-.scroll-section {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.line {
-	overflow: hidden;
-	user-select: none;
-}
-
-@keyframes noise-d4232bc3 {
-	0% {
-		transform: translate3d(1%, -1%, 0);
-	}
-
-	10% {
-		transform: translate3d(-5%, -2%, 0);
-	}
-
-	20% {
-		transform: translate3d(10%, 5%, 0);
-	}
-
-	30% {
-		transform: translate3d(5%, -11%, 0);
-	}
-
-	40% {
-		transform: translate3d(-12%, -5%, 0);
-	}
-
-	50% {
-		transform: translate3d(10%, 9%, 0);
-	}
-
-	60% {
-		transform: translate3d(15%, 0, 0);
-	}
-
-	70% {
-		transform: translate3d(-10%, 8%, 0);
-	}
-
-	80% {
-		transform: translate3d(10%, 2%, 0);
-	}
-
-	90% {
-		transform: translate3d(-1%, 5%, 0);
-	}
-
-	to {
-		transform: translate3d(0, 8%, 0);
 	}
 }
 

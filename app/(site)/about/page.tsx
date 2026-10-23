@@ -1,11 +1,9 @@
-import "./about.css";
-
 export default function About() {
 	return (
-		<main className="about-wrapper">
-			<div className="about-content">
+		<main className="relative flex flex-1 flex-col px-[2em] pt-[10em]">
+			<div className="pointer-events-none flex flex-col gap-[5em] max-lg:mb-[5em] max-lg:gap-[3em]">
 				<h1>ABOUT</h1>
-				<div className="about-content__text">
+				<div className="grid grid-cols-2 gap-[5em] px-[20em] max-lg:grid-cols-1 max-lg:gap-[2em] max-lg:px-[2em]">
 					<p>
 						<b>PELIZZA PICTURES</b> est une agence créative indépendante au style affirmé,
 						spécialisée dans la création de contenus visuels et audiovisuels sur mesure. Agence à

@@ -45,7 +45,7 @@ export default function VideoDialog({ playbackId, title, source, onClose }: Vide
 			ref={dialogRef}
 			onClose={onClose}
 			aria-label={title}
-			className="video-dialog m-auto w-[min(92vw,150vh)] overflow-visible p-0 backdrop:bg-black/90"
+			className="m-auto w-[min(92vw,150vh)] overflow-visible p-0 backdrop:bg-black/90 motion-safe:transition-opacity motion-safe:duration-300 motion-safe:ease-out motion-safe:starting:open:opacity-0 motion-safe:backdrop:transition-opacity motion-safe:backdrop:duration-300 motion-safe:backdrop:ease-out motion-safe:starting:open:backdrop:opacity-0"
 		>
 			{source && (
 				<>
