@@ -9,17 +9,17 @@ export default function Contact() {
 				</div>
 				<div className="flex flex-col gap-y-4 lg:w-[40vw]">
 					<input
-						className="mt-6 pb-[2vh] border-b outline-none"
+						className="mt-6 pb-[2vh] border-b border-gray-200 outline-hidden"
 						type="text"
 						placeholder="VOTRE NOM"
 					/>
 					<input
-						className="mt-6 pb-[2vh] border-b outline-none"
+						className="mt-6 pb-[2vh] border-b border-gray-200 outline-hidden"
 						type="text"
 						placeholder="VOTRE EMAIL"
 					/>
 					<input
-						className="mt-6 pb-[2vh] border-b outline-none"
+						className="mt-6 pb-[2vh] border-b border-gray-200 outline-hidden"
 						type="text"
 						placeholder="PARLEZ DE VOTRE PROJET"
 					/>

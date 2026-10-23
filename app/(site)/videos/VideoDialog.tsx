@@ -52,7 +52,7 @@ export default function VideoDialog({ playbackId, title, source, onClose }: Vide
 					<button
 						type="button"
 						onClick={() => dialogRef.current?.close()}
-						className="absolute -top-10 right-0 text-white"
+						className="absolute -top-10 right-0 cursor-pointer text-white"
 					>
 						CLOSE
 					</button>

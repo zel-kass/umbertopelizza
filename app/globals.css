@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Desktop */
 :root {
@@ -97,85 +95,87 @@
 }
 
 /* Apply the scaling system */
-html {
-	font-size: var(--size-font);
-	box-sizing: border-box;
-}
+@layer base {
+	html {
+		font-size: var(--size-font);
+		box-sizing: border-box;
+	}
 
-/* Responsive Layout Variables - Scale with viewport */
-:root {
-	--container-padding: 3em;
-	--section-padding: 12em;
-	--gap-xl: 4.5em;
-	--gap-l: 3em;
-	--gap: 1.5em;
-	--gap-s: 1em;
-	--gap-xs: 0.75em;
-	--border-radius: 0.2em;
-	--border-radius-s: 0.5em;
-	--border-radius-m: 1em;
-	--border-radius-l: 1.5em;
-}
+	/* Responsive Layout Variables - Scale with viewport */
+	:root {
+		--container-padding: 3em;
+		--section-padding: 12em;
+		--gap-xl: 4.5em;
+		--gap-l: 3em;
+		--gap: 1.5em;
+		--gap-s: 1em;
+		--gap-xs: 0.75em;
+		--border-radius: 0.2em;
+		--border-radius-s: 0.5em;
+		--border-radius-m: 1em;
+		--border-radius-l: 1.5em;
+	}
 
-body {
-	background: white;
-	color: var(--color-foreground);
-	line-height: 1.5;
-	font-family: var(--font-switzer), system-ui, sans-serif;
-}
+	body {
+		background: white;
+		color: var(--color-foreground);
+		line-height: 1.5;
+		font-family: var(--font-switzer), system-ui, sans-serif;
+	}
 
-h1 {
-	font-size: 9em;
-	line-height: 1;
-	font-style: normal;
-	font-weight: 800;
-}
-
-h2 {
-	font-size: 5em;
-	line-height: 1;
-	font-style: normal;
-	font-weight: 800;
-}
-
-h3,
-input {
-	font-style: normal;
-}
-
-span {
-	font-style: normal;
-	font-weight: 800;
-}
-
-p {
-	font-size: 1.4em;
-	font-style: normal;
-	font-weight: 300;
-}
-
-@media screen and (max-width: 479px) {
 	h1 {
-		font-size: 5em;
+		font-size: 9em;
 		line-height: 1;
 		font-style: normal;
+		font-weight: 800;
 	}
 
 	h2 {
-		font-size: 3em;
+		font-size: 5em;
 		line-height: 1;
+		font-style: normal;
+		font-weight: 800;
+	}
+
+	h3,
+	input {
 		font-style: normal;
 	}
 
 	span {
-		font-size: 1.4em;
 		font-style: normal;
+		font-weight: 800;
 	}
 
 	p {
-		font-size: 0.8em;
+		font-size: 1.4em;
 		font-style: normal;
 		font-weight: 300;
+	}
+
+	@media screen and (max-width: 479px) {
+		h1 {
+			font-size: 5em;
+			line-height: 1;
+			font-style: normal;
+		}
+
+		h2 {
+			font-size: 3em;
+			line-height: 1;
+			font-style: normal;
+		}
+
+		span {
+			font-size: 1.4em;
+			font-style: normal;
+		}
+
+		p {
+			font-size: 0.8em;
+			font-style: normal;
+			font-weight: 300;
+		}
 	}
 }
 
@@ -210,63 +210,6 @@ p {
 		.video-dialog[open]::backdrop {
 			opacity: 0;
 		}
-	}
-}
-
-@layer base {
-	:root {
-		--background: 0 0% 100%;
-		--foreground: 0 0% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 0 0% 3.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 0 0% 3.9%;
-		--primary: 0 0% 9%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 0 0% 96.1%;
-		--secondary-foreground: 0 0% 9%;
-		--muted: 0 0% 96.1%;
-		--muted-foreground: 0 0% 45.1%;
-		--accent: 0 0% 96.1%;
-		--accent-foreground: 0 0% 9%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 89.8%;
-		--input: 0 0% 89.8%;
-		--ring: 0 0% 3.9%;
-		--chart-1: 12 76% 61%;
-		--chart-2: 173 58% 39%;
-		--chart-3: 197 37% 24%;
-		--chart-4: 43 74% 66%;
-		--chart-5: 27 87% 67%;
-		--radius: 0.5rem;
-	}
-
-	.dark {
-		--background: 0 0% 3.9%;
-		--foreground: 0 0% 98%;
-		--card: 0 0% 3.9%;
-		--card-foreground: 0 0% 98%;
-		--popover: 0 0% 3.9%;
-		--popover-foreground: 0 0% 98%;
-		--primary: 0 0% 98%;
-		--primary-foreground: 0 0% 9%;
-		--secondary: 0 0% 14.9%;
-		--secondary-foreground: 0 0% 98%;
-		--muted: 0 0% 14.9%;
-		--muted-foreground: 0 0% 63.9%;
-		--accent: 0 0% 14.9%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 14.9%;
-		--input: 0 0% 14.9%;
-		--ring: 0 0% 83.1%;
-		--chart-1: 220 70% 50%;
-		--chart-2: 160 60% 45%;
-		--chart-3: 30 80% 55%;
-		--chart-4: 280 65% 60%;
-		--chart-5: 340 75% 55%;
 	}
 }
 
