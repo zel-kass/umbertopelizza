@@ -1,58 +1,16 @@
 @import "tailwindcss";
 
-/* Match the fluid sizing breakpoints below */
+/* Layout breakpoints used by the em-based design */
 @theme {
 	--breakpoint-sm: 480px;
 	--breakpoint-md: 768px;
 	--breakpoint-lg: 992px;
 }
 
-/* Desktop */
-:root {
-	--size-unit: 16;
-	/* body font-size in design - no px */
-	--size-container-ideal: 1920;
-	/* screen-size in design - no px */
-	--size-container-min: 992px;
-	--size-container-max: 1920px;
-	--size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
-	--size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
-}
-
-/* Tablet */
-@media screen and (max-width: 991px) {
-	:root {
-		--size-container-ideal: 834;
-		/* screen-size in design - no px */
-		--size-container-min: 768px;
-		--size-container-max: 991px;
-	}
-}
-
-/* Mobile Landscape */
-@media screen and (max-width: 767px) {
-	:root {
-		--size-container-ideal: 768;
-		/* Keep closer to tablet to avoid jump */
-		--size-container-min: 480px;
-		--size-container-max: 767px;
-	}
-}
-
-/* Mobile Portrait */
-@media screen and (max-width: 479px) {
-	:root {
-		--size-container-ideal: 480;
-		--size-container-min: 320px;
-		--size-container-max: 479px;
-	}
-}
-
-/* Apply the scaling system */
 @layer base {
+	/* Fluid root: grows with width on desktop, as the screen narrows on mobile; rem terms keep zoom working */
 	html {
-		font-size: var(--size-font);
-		box-sizing: border-box;
+		font-size: min(max(0.125rem + 0.75vw, 0.875rem - 0.4vw), 1rem);
 	}
 
 	body {
@@ -61,15 +19,16 @@
 		font-family: var(--font-switzer), system-ui, sans-serif;
 	}
 
+	/* vw caps shrink headings and text smoothly on small screens instead of a breakpoint jump */
 	h1 {
-		font-size: 9em;
+		font-size: min(9em, 16vw);
 		line-height: 1;
 		font-style: normal;
 		font-weight: 800;
 	}
 
 	h2 {
-		font-size: 5em;
+		font-size: min(5em, 10vw);
 		line-height: 1;
 		font-style: normal;
 		font-weight: 800;
@@ -86,33 +45,14 @@
 	}
 
 	p {
-		font-size: 1.4em;
+		font-size: clamp(0.8em, 2.7vw, 1.4em);
 		font-style: normal;
 		font-weight: 300;
 	}
 
 	@media screen and (max-width: 479px) {
-		h1 {
-			font-size: 5em;
-			line-height: 1;
-			font-style: normal;
-		}
-
-		h2 {
-			font-size: 3em;
-			line-height: 1;
-			font-style: normal;
-		}
-
 		span {
 			font-size: 1.4em;
-			font-style: normal;
-		}
-
-		p {
-			font-size: 0.8em;
-			font-style: normal;
-			font-weight: 300;
 		}
 	}
 }
