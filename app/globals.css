@@ -21,14 +21,14 @@
 
 	/* vw caps shrink headings and text smoothly on small screens instead of a breakpoint jump */
 	h1 {
-		font-size: min(9em, 16vw);
+		font-size: min(8em, 14vw);
 		line-height: 1;
 		font-style: normal;
 		font-weight: 800;
 	}
 
 	h2 {
-		font-size: min(5em, 10vw);
+		font-size: min(4em, 8vw);
 		line-height: 1;
 		font-style: normal;
 		font-weight: 800;
@@ -74,4 +74,23 @@ mux-player {
 	--volume-range: none;
 	--time-display: none;
 	--rendition-menu-button: none;
+}
+
+::view-transition-new(.gallery-photos-enter) {
+	animation: gallery-photos-in 500ms 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes gallery-photos-in {
+	from {
+		opacity: 0;
+		transform: translateY(2rem);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
 }

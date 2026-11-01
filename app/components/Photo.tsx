@@ -1,7 +1,8 @@
 "use client";
 
-import Image, { type ImageLoader, type ImageProps } from "next/image";
+import Image, { getImageProps, type ImageLoader, type ImageProps } from "next/image";
 import { useState } from "react";
+import { preload } from "react-dom";
 import { cn } from "@/lib/utils";
 import type { GalleryPhoto } from "@/lib/gallery";
 
@@ -11,6 +12,18 @@ const imgixLoader: ImageLoader = ({ src, width, quality }) => {
 	if (quality) url.searchParams.set("q", String(quality));
 	return url.toString();
 };
+
+export function preloadPhoto(photo: GalleryPhoto, sizes: string) {
+	const { props } = getImageProps({
+		src: photo.url,
+		alt: "",
+		width: photo.dimensions.width,
+		height: photo.dimensions.height,
+		loader: imgixLoader,
+		sizes,
+	});
+	preload(props.src, { as: "image", imageSrcSet: props.srcSet, imageSizes: props.sizes });
+}
 
 type PhotoProps = Omit<
 	ImageProps,
@@ -22,7 +35,7 @@ type PhotoProps = Omit<
 };
 
 export default function Photo({ photo, fallbackAlt, className, ...props }: PhotoProps) {
-	const [loaded, setLoaded] = useState(false);
+	const [status, setStatus] = useState<"loading" | "cached" | "loaded">("loading");
 
 	return (
 		<div className={cn("bg-neutral-200", className)}>
@@ -34,12 +47,14 @@ export default function Photo({ photo, fallbackAlt, className, ...props }: Photo
 				height={photo.dimensions.height}
 				loader={imgixLoader}
 				ref={(img) => {
-					if (img?.complete && img.naturalWidth > 0) setLoaded(true);
+					if (img?.complete && img.naturalWidth > 0)
+						setStatus((current) => (current === "loading" ? "cached" : current));
 				}}
-				onLoad={() => setLoaded(true)}
+				onLoad={() => setStatus((current) => (current === "loading" ? "loaded" : current))}
 				className={cn(
-					"h-full w-full object-cover transition-opacity duration-500",
-					loaded ? "opacity-100" : "opacity-0",
+					"h-full w-full object-cover",
+					status !== "cached" && "transition-opacity duration-500",
+					status === "loading" ? "opacity-0" : "opacity-100",
 				)}
 			/>
 		</div>
