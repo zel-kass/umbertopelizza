@@ -46,6 +46,59 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
+/**
+ * Item in *About → Paragraphs*
+ */
+export interface AboutDocumentDataParagraphsItem {
+	/**
+	 * Language field in *About → Paragraphs*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: fr
+	 * - **API ID Path**: about.paragraphs[].language
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	language: prismic.SelectField<"fr" | "en" | "zh" | "ar", "filled">;
+	
+	/**
+	 * Text field in *About → Paragraphs*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Texte du paragraphe
+	 * - **API ID Path**: about.paragraphs[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	text: prismic.RichTextField;
+}
+
+/**
+ * Content for About documents
+ */
+interface AboutDocumentData {
+	/**
+	 * Paragraphs field in *About*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.paragraphs[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	paragraphs: prismic.GroupField<Simplify<AboutDocumentDataParagraphsItem>>;
+}
+
+/**
+ * About document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
+
 type GalleryProjectDocumentDataSlicesSlice = SinglePhotoSlice
 
 /**
@@ -124,7 +177,7 @@ interface VideoDocumentData {
  */
 export type VideoDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<VideoDocumentData>, "video", Lang>;
 
-export type AllDocumentTypes = GalleryProjectDocument | VideoDocument;
+export type AllDocumentTypes = AboutDocument | GalleryProjectDocument | VideoDocument;
 
 /**
  * Primary content in *SinglePhoto → Default → Primary*
@@ -179,6 +232,9 @@ declare module "@prismicio/client" {
 	
 	namespace Content {
 		export type {
+			AboutDocument,
+			AboutDocumentData,
+			AboutDocumentDataParagraphsItem,
 			GalleryProjectDocument,
 			GalleryProjectDocumentData,
 			GalleryProjectDocumentDataSlicesSlice,
