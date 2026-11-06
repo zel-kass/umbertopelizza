@@ -1,0 +1,40 @@
+{
+  "format": "custom",
+  "id": "about",
+  "json": {
+    "Main": {
+      "paragraphs": {
+        "config": {
+          "fields": {
+            "language": {
+              "config": {
+                "default_value": "fr",
+                "label": "Language",
+                "options": [
+                  "fr",
+                  "en",
+                  "zh",
+                  "ar"
+                ]
+              },
+              "type": "Select"
+            },
+            "text": {
+              "config": {
+                "label": "Text",
+                "multi": "paragraph,strong",
+                "placeholder": "Texte du paragraphe"
+              },
+              "type": "StructuredText"
+            }
+          },
+          "label": "Paragraphs"
+        },
+        "type": "Group"
+      }
+    }
+  },
+  "label": "About",
+  "repeatable": false,
+  "status": true
+}
