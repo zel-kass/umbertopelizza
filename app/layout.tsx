@@ -7,7 +7,7 @@ import { ReactLenis } from "lenis/react";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 export const metadata: Metadata = {
-	title: "Pelizza Pictures",
+	title: "PICTURZZ",
 	description: "Portfolio",
 };
 

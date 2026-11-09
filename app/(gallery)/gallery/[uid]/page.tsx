@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
 	const project = await getGalleryProject((await params).uid);
-	return { title: project ? `${project.title} | Pelizza Pictures` : "Pelizza Pictures" };
+	return { title: project ? `${project.title} | PICTURZZ` : "PICTURZZ" };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

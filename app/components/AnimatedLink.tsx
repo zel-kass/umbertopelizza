@@ -26,7 +26,7 @@ export default function AnimatedLink({ link, text, fontSize, onClick }: Animated
 				maxIterations={8}
 				useOriginalCharsOnly={false}
 				className="cursor-pointer"
-				characters="PELIZZA"
+				characters="PICTURZZ"
 				fontSize={fontSize}
 			/>
 		</Link>
