@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react/ssr";
 import { useLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
 import Photo, { preloadPhoto } from "@/app/components/Photo";
@@ -108,11 +109,21 @@ export default function PhotoDialog({
 					</div>
 					{photos.length > 1 && (
 						<div className="absolute -bottom-10 inset-x-0 flex justify-between text-white">
-							<button type="button" onClick={() => step(-1)} className="cursor-pointer">
-								← PREV
+							<button
+								type="button"
+								onClick={() => step(-1)}
+								className="flex cursor-pointer items-center gap-1"
+							>
+								<ArrowLeftIcon aria-hidden />
+								PREV
 							</button>
-							<button type="button" onClick={() => step(1)} className="cursor-pointer">
-								NEXT →
+							<button
+								type="button"
+								onClick={() => step(1)}
+								className="flex cursor-pointer items-center gap-1"
+							>
+								NEXT
+								<ArrowRightIcon aria-hidden />
 							</button>
 						</div>
 					)}

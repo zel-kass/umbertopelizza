@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArrowLeftIcon } from "@phosphor-icons/react/ssr";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
@@ -31,8 +32,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 		>
 			<main className="pt-[6em]">
 				<div className="px-4 pb-4">
-					<Link href="/gallery" transitionTypes={["nav-back"]} className="font-bold">
-						← GALLERY
+					<Link
+						href="/gallery"
+						transitionTypes={["nav-back"]}
+						className="inline-flex items-center gap-1 font-bold"
+					>
+						<ArrowLeftIcon weight="bold" aria-hidden />
+						GALLERY
 					</Link>
 				</div>
 				<ViewTransition name={`project-${project.uid}`} share="auto" default="none">
