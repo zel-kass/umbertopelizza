@@ -35,7 +35,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 					<Link
 						href="/gallery"
 						transitionTypes={["nav-back"]}
-						className="inline-flex items-center gap-1 font-bold"
+						className="inline-flex items-center gap-1 font-bold text-2xl"
 					>
 						<ArrowLeftIcon weight="bold" aria-hidden />
 						GALLERY
