@@ -39,9 +39,9 @@ function buildEmail({ name, email, message }: Fields) {
 	const [n, e, m] = [name, email, message].map(escapeHtml);
 	return {
 		subject: `Nouveau message de ${name} — PICTURZZ`,
-		text: `Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}\n`,
+		text: `Prise de contact via PICTURZZ\n\nNom : ${name}\nEmail : ${email}\n\nMessage :\n${message}\n`,
 		html: `<div style="font-family:sans-serif;font-size:15px;line-height:1.5;color:#18181b">
-<h2 style="margin:0 0 16px">Nouveau message via le site</h2>
+<h2 style="margin:0 0 16px">Prise de contact via PICTURZZ</h2>
 <p style="margin:0"><strong>Nom :</strong> ${n}</p>
 <p style="margin:0 0 16px"><strong>Email :</strong> <a href="mailto:${e}">${e}</a></p>
 <p style="margin:0"><strong>Message :</strong></p>
