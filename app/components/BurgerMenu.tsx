@@ -1,7 +1,7 @@
 "use client";
 
 import BurgerButton from "./BurgerButton";
-import AnimatedLink from "./AnimatedLink";
+import Logo from "./Logo";
 import { useState } from "react";
 import Menu from "./Menu";
 
@@ -16,7 +16,7 @@ export default function BurgerMenu() {
 	return (
 		<div className="flex md:hidden w-full justify-between items-center p-4">
 			<div className="z-10">
-				<AnimatedLink link="/" text="PICTURZZ" onClick={closeMenu} />
+				<Logo className="h-7 w-auto" onClick={closeMenu} />
 			</div>
 			<BurgerButton isOpen={isOpen} toggle={toggleMenu} />
 			<Menu isOpen={isOpen} onLinkClick={closeMenu} />

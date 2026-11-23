@@ -2,6 +2,7 @@
 
 import BurgerMenu from "@/app/components/BurgerMenu";
 import AnimatedLink from "@/app/components/AnimatedLink";
+import Logo from "@/app/components/Logo";
 import WorksDropdown from "@/app/components/WorksDropdown";
 
 const routes = [
@@ -20,12 +21,12 @@ const routes = [
 export default function NavBar() {
 	return (
 		<nav
-			className="w-full fixed lg:px-8 px-4 z-50 text-white mix-blend-exclusion"
+			className="w-full fixed top-6 lg:px-8 px-4 z-50 text-white mix-blend-exclusion"
 			aria-label="Main navigation"
 		>
 			<BurgerMenu />
 			<div className="hidden md:flex w-full py-2 flex-col sm:flex-row justify-between items-center">
-				<AnimatedLink link="/" text="PICTURZZ" fontSize="3rem" />
+				<Logo className="h-10 w-auto" />
 				<div className="flex flex-row gap-8 items-start">
 					{routes.map((route, index) =>
 						route.children ? (
